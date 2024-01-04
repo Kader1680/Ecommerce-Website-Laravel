@@ -10,6 +10,6 @@ class categoryController extends Controller
     public function categories(){
         $categorie = DB::table("categorys")->get();
         // ["allcategorie" => $categorie]
-        return view("category");
+        return view("category", ["allcategorie" => $categorie]);
     }
 }
