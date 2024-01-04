@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\categoryController;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get("/", [ProductsController::class, "getAllProduct"]);
+Route::get("/", [ProductsController::class, "Home"]);
+Route::get("/categories", [categoryController::class, "categories"]);

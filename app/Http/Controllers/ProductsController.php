@@ -8,11 +8,12 @@ use Illuminate\Support\Facades\DB;
 class ProductsController extends Controller
 {
 
-    public function getAllProduct(){
 
 
-        $categorie = DB::table("categorys")->get();
-        return view("products.products", ["allcategorie" => $categorie]);
+    public function Home(){
+
+
+        return view("home");
     }
 
 }
