@@ -12,4 +12,10 @@ class categoryController extends Controller
         // ["allcategorie" => $categorie]
         return view("category", ["allcategorie" => $categorie]);
     }
+
+    public function filterc($cat_id){
+        $products = DB::table("products")->where('cat_id', $cat_id)->get();
+        // ["allcategorie" => $categorie]
+        return view("categories.categories", ["products" => $products]);
+    }
 }

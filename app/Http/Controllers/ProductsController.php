@@ -10,10 +10,18 @@ class ProductsController extends Controller
 
 
 
-    public function Home(){
+    public function allProduct(){
 
+        $products = DB::table("products")->get();
 
-        return view("home");
+        return view("products.products", ["products" => $products]);
+    }
+
+    public function catProduct($id){
+
+        $products = DB::table("products")->where("id", $id)->get();
+
+        return view("products.products", ["products" => $products]);
     }
 
 }

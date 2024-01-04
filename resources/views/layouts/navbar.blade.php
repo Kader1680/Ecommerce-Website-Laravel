@@ -171,9 +171,9 @@ body {
           </ul>
 
         </li> --}}
-        <li class="menu-item "><a class="nav__link"  href="categories">Categories</a></li>
-        <li class="menu-item "><a class="nav__link"  href="#">Prodcuts</a></li>
-        <li class="menu-item "><a class="nav__link"  href="#">Blog</a></li>
+        <li class="menu-item "><a class="nav__link"  href="/categories">Categories</a></li>
+        <li class="menu-item "><a class="nav__link"  href="/products">Prodcuts</a></li>
+        <li class="menu-item "><a class="nav__link"  href="#">contact</a></li>
       </ul>
 
 

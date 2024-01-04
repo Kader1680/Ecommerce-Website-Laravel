@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view();
-// });
+Route::get('/', function () {
+    return "this id home page";
+});
 
 
-Route::get("/", [ProductsController::class, "Home"]);
+Route::get("/products", [ProductsController::class, "allProduct"]);
+Route::get("/products/{id}", [ProductsController::class, "catProduct"]);
 Route::get("/categories", [categoryController::class, "categories"]);
+Route::get("/categories/{cat_id}", [categoryController::class, "filterc"]);

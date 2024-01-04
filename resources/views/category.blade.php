@@ -3,37 +3,28 @@
 
     @section("content")
 
-    {{-- <div class="row">
-
-    </div> --}}
 
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
-    <!------ Include the above in your HEAD tag ---------->
-
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <div style="margin-top: 8rem" class="container">
            <div class="row">
 
-            @foreach ($allcategorie as $list)
+                @foreach ($allcategorie as $list)
 
-
-
-
-
-            <div class="col-md-3">
-                <div class="square-service-block">
-                   <a href="#">
-                    <img width="100%" src="{{ url($list->imageCat) }}" alt="">
-                     <h2 class="ssb-title">web service</h2>
-                   </a>
+                <div class="col-md-3">
+                    <div class="square-service-block">
+                    <a href="/categories/{{ $list->id }}">
+                        <img width="100%" height="180rem" src="{{ url($list->imageCat) }}" alt="">
+                        <h2 class="ssb-title">{{ $list->nameCat }}</h2>
+                    </a>
+                    </div>
                 </div>
-            </div>
-            @endforeach
+                @endforeach
 
            </div>
+    </div>
+
+
 
 
 
