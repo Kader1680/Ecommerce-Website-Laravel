@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class CartController extends Controller
 {
@@ -27,6 +28,6 @@ class CartController extends Controller
             ]
         );
 
-        return $product;
+        return Redirect()->route('items');
     }
 }
