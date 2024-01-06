@@ -1,8 +1,5 @@
 
 @extends("layouts.master")
-
 @section("content")
-    this sisb Home
-@endsection
 
-
+<h1 class="">Responsive home page</h1>
