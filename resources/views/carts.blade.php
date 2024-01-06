@@ -61,9 +61,7 @@
 @section("content")
 <div class="container">
 
-@foreach ($carts as $cart)
-    <p>{{ $cart->name }}</p>
-@endforeach
+
 
     <table class="table table-xs">
       <tr>
@@ -73,26 +71,21 @@
         <th class="text-right">Price</th>
         <th class="text-right">Total</th>
       </tr>
-      <tr class="item-row">
-        <td> <img width="100" src=" "></td>
+
+      @foreach ($carts as $cart)
+    <p></p>
+
+    <tr class="item-row">
+        <td> <img width="100" src="{{ url("$cart->image") }}"></td>
         <td>
-          <p> <strong>Item 1</strong></p>
+          <p> <strong>{{ $cart->name }}</strong></p>
           <p>Amet et esse do nostrud id irure cupidatat labore nulla irure laboris</p>
         </td>
-        <td class="text-right" title="Amount">3</td>
-        <td class="text-right" title="Price">2.00 $</td>
-        <td class="text-right" title="Total">6.00 $</td>
+        <td class="text-right" title="Amount">{{ $cart->quantity }}</td>
+        <td class="text-right" title="Price">{{ $cart->price }}</td>
       </tr>
-      <tr class="item-row item-row-last">
-        <td> <img width="100" src=""/></td>
-        <td>
-          <p> <strong>Item 2</strong></p>
-          <p>Amet et esse do nostrud id irure cupidatat labore nulla irure laboris</p>
-        </td>
-        <td class="text-right" title="Amount">3</td>
-        <td class="text-right" title="Price">4.00 $</td>
-        <td class="text-right" title="Total">12.00 $</td>
-      </tr>
+       @endforeach
+
       <tr class="total-row info">
         <td class="text-right" colspan="4">Total</td>
         <td class="text-right">18.00 $</td>
