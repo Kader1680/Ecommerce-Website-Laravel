@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
 
 class CartController extends Controller
 {
@@ -15,14 +15,18 @@ class CartController extends Controller
         $carts = DB::table("carts")->get();
         return view("carts", ["carts"=>$carts]);
     }
-    public function postProduct(Request $request){
-        $name = $request->input("name");
-        $name = $request->input("name");
-        $carts = DB::table("carts")->insert(
+
+    public function postProduct(Request $request, $id){
+        $productsId = Products::find($id);
+        $product = DB::table("carts")->insert(
             [
-                "name" => "name"
+                "name" =>  $productsId->name,
+                "price" =>  $productsId->price,
+                "quantity" =>  $productsId->quantity,
+                "image" =>  $productsId->image,
             ]
         );
-        return view("carts", ["carts"=>$carts]);
+
+        return $product;
     }
 }

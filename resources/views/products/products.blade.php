@@ -15,7 +15,7 @@
                     <h4><a href="/products/{{  $product->id }}">detail</a></h4>
                     <p class="ssb-title">Price {{ $product->price }} $</p>
                     <p class="ssb-title">Deliver {{ $product->quantity }}</p>
-                    <form action="" method="post">
+                    <form action="{{ url('items', $product->id) }}" method="post">
                         @csrf
                         <input type="number" min="1">
                         <input type="submit" name="submit" placeholder="submit">

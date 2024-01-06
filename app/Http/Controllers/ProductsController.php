@@ -24,4 +24,6 @@ class ProductsController extends Controller
         return view("products.products", ["products" => $products]);
     }
 
+
+
 }
