@@ -398,3 +398,19 @@ main section.section-login .section-main .section-login-2 .section-login-2-main 
         padding: 35px 25px;
     }
 }
+
+@media(min-width:991px){
+    nav{
+        width: 100%;
+        top: 0;
+    }
+    .count{
+        position: fixed;
+        right: 128px;
+        background-color: #ec5656;
+        padding: 4px;
+        z-index: 3;
+        top: 17px;
+        font-weight: 800;
+    }
+}

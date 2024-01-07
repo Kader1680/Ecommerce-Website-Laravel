@@ -14,7 +14,7 @@
 
 
 
-<nav class="navbar">
+<nav class="navbar position-fixed mb-5">
     <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AS_sample_logo.png" alt="LOGO"></div>
     <div class="push-left">
       <button id="menu-toggler" data-class="menu-active" class="hamburger">
@@ -25,17 +25,19 @@
 
       <!--  Menu compatible with wp_nav_menu  -->
       <ul id="primary-menu" class="menu nav-menu">
-        <li class=" list"><a class=" "  href="/">Home</a></li>
-        <li class=" list "><a class=" "  href="/categories">Categories</a></li>
+        <li class=" list"><a class=" "  href="/home">Home</a></li>
         <li class=" list"><a class=" "  href="/products">Prodcuts</a></li>
 
-        <div  class="count bg-danger text-white font-weight-bold position-fixed p-2 rounded-3"><?php
+        <li class=" list "><a class=" "  href="/categories">Categories</a></li>
+
+        <div  class="count  text-white font-weight-bold rounded-3"><?php
             use Illuminate\Support\Facades\DB;
             $count = DB::table('carts')->count();
             echo $count;
             ?></div>
         <li class=" list position-relative"><a class=" "  href="/items">Cart</a></li>
-        <li class=" list "><a class=" "  href="/sign">Account</a></li>
+        <li class=" list "><a class=" "  href="/">Account</a></li>
+        <li class=" list "><a class=" "  href="/login">Logout</a></li>
       </ul>
 
 

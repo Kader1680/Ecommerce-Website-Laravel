@@ -59,10 +59,7 @@
 @extends("layouts.master")
 
 @section("content")
-<div class="container">
-
-
-
+<div style="margin-top: 10rem" class="container">
     <table class="table table-xs">
       <tr>
         <th></th>
