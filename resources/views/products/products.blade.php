@@ -18,7 +18,7 @@
                     <form action="{{ url('items', $product->id) }}" method="post">
                         @csrf
                         <input type="number" min="1">
-                        <input type="submit" name="submit" placeholder="submit">
+                        <button><input  name="submit" placeholder="add to cart"></button>
                     </form>
                 </a>
                 </div>

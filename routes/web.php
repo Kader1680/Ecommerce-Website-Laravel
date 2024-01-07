@@ -6,6 +6,11 @@ use App\Http\Controllers\HomeContoller;
 use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
 
+
+
+Route::get('/sign', function(){
+    return view("account");
+});
 Route::get("/", [HomeContoller::class, "homePage"]);
 Route::get("/items", [CartController::class, "getCarts"])->name("items");
 Route::post("/items/{id}", [CartController::class, "postProduct"]);
