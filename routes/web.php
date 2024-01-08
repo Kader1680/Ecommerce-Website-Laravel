@@ -18,13 +18,13 @@ use Illuminate\Support\Facades\Route;
 //     return view("account");
 // });
 Route::get("/home", [HomeContoller::class, "homePage"])->middleware("auth");
-Route::get("/items", [CartController::class, "getCarts"])->name("items");
-Route::post("/items/{id}", [CartController::class, "postProduct"]);
-Route::get("/products", [ProductsController::class, "allProduct"]);
-Route::get("/products/{id}", [ProductsController::class, "catProduct"]);
-Route::get("/categories", [categoryController::class, "categories"]);
+Route::get("/items", [CartController::class, "getCarts"])->name("items")->middleware("auth");
+Route::post("/items/{id}", [CartController::class, "postProduct"])->middleware("auth");
+Route::get("/products", [ProductsController::class, "allProduct"])->middleware("auth");
+Route::get("/products/{id}", [ProductsController::class, "catProduct"])->middleware("auth");
+Route::get("/categories", [categoryController::class, "categories"])->middleware("auth");
 
-Route::get("/dashboard", [DashController::class, "DashBoard"])->middleware("auth");
+Route::get("/profil", [ProfilController::class, "Profil"])->middleware("auth");
 
 // Route::get("/", [DashController::class, "DashBoard"])->name("dashboard");
 

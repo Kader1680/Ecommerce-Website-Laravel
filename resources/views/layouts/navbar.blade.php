@@ -36,7 +36,7 @@
             echo $count;
             ?></div>
         <li class=" list position-relative"><a class=" "  href="/items">Cart</a></li>
-        <li class=" list "><a class=" "  href="/dashboard">dashboard</a></li>
+        <li class=" list "><a class=" "  href="/profil">Profil</a></li>
         <li class=" list "><a class=" "  href="/logout">Logout</a></li>
       </ul>
 

@@ -28,10 +28,21 @@
                             <label for="input-password">Password</label>
                             <input name="password" type="password" id="input-password" placeholder="At least 4 characters" required>
                         </div>
-                        <div class="login-form-5">
-                            <p>  <input type="submit" name="submit" /> </p>
+                        <div class="login-form-submit-btn">
+                            <button type="submit">
+                                Login
+                            </button>
                         </div>
-                        <a href="/register">Register now</a>
+
+                        {{-- <div class="login-form-5">
+                            <p>  <input type="submit" name="submit" /> </p>
+                        </div> --}}
+                        <div class="  login-form-submit-btn">
+                            <button class=" bg-white" type="submit">
+                                <a href="/register">Register Now</a>
+                            </button>
+                        </div>
+
                     </form>
 
                 </div>

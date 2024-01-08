@@ -22,7 +22,7 @@ class AuthController extends Controller
                 'password' => $request->input("password"),
             ];
             if (Auth::attempt($credetials)) {
-                return redirect('/dashboard');
+                return redirect('/profil');
         }else{
             return redirect("login")->with("oopp");
         }
@@ -34,6 +34,7 @@ class AuthController extends Controller
             $user = new User();
             $user->name = $request->input("name");
             $user->email = $request->input("email");
+            $user->phone = $request->input("phone");
             $user->password = Hash::make($request->input("password"));
             $user->save();
             $credetials = [
@@ -42,7 +43,7 @@ class AuthController extends Controller
             ];
 
             if (Auth::attempt($credetials)) {
-                return redirect()->route("dashboard");
+                return redirect()->route("profil");
             }
 
         }

@@ -20,14 +20,17 @@
                     <h1 class="section-login-2-title">Sign In</h1>
                     <form enctype="multipart/form-data"  method="POST" action=" {{ route("register") }} " class="section-login-2-form">
                         @csrf
-
+                        <div class="login-form-2">
+                            <label for="input-name">Full Name</label>
+                            <input name="name" type="text" id="input-name" placeholder="John Doe" required>
+                        </div>
                         <div class="login-form-1">
                             <label   for="input-email">Email</label>
                             <input name="email" type="text" id="input-email" placeholder="john@gmail.com" required>
                         </div>
-                        <div class="login-form-2">
-                            <label for="input-name">Full Name</label>
-                            <input name="name" type="text" id="input-name" placeholder="John Doe" required>
+                        <div class="login-form-1">
+                            <label   for="input-email">Phone Number</label>
+                            <input name="phone" type="number" id="input-email" placeholder="john@gmail.com" required>
                         </div>
                         <div class="login-form-3">
                             <label for="input-password">Password</label>

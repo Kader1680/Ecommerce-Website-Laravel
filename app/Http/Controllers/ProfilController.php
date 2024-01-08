@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class DashController extends Controller
+class ProfilController extends Controller
 
 
 {
 
-        public function DashBoard(){
+        public function Profil(){
             $userAuth = auth::User();
-            return view("dashboard", compact('userAuth'));
+            return view("profil", compact('userAuth'));
         }
 }
