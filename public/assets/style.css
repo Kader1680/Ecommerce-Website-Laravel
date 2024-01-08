@@ -414,3 +414,26 @@ main section.section-login .section-main .section-login-2 .section-login-2-main 
         font-weight: 800;
     }
 }
+
+
+.drop{
+    width: 10%;
+    background-color: #013243;
+    color: white;
+    height: 6rem;
+    position: fixed;
+    right: 53px;
+    width: 10%;
+    background-color: white;
+    color: black;
+    height: 6rem;
+    position: fixed;
+    right: 53px;
+    padding: 18px 0px;
+    list-style: none;
+    transition: 1s;
+    display: none;
+}
+.drop.none{
+    display: block;
+}

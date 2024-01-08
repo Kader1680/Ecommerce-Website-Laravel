@@ -30,16 +30,22 @@
 
         <li class=" list "><a class=" "  href="/categories">Categories</a></li>
 
-        <div  class="count  text-white font-weight-bold rounded-3"><?php
+        <div  class="count  text-white font-weight-bold rounded-3">
+        <?php
             use Illuminate\Support\Facades\DB;
             $count = DB::table('carts')->count();
             echo $count;
-            ?></div>
+        ?>
+        </div>
         <li class=" list position-relative"><a class=" "  href="/items">Cart</a></li>
-        <li class=" list "><a class=" "  href="/profil">Profil</a></li>
-        <li class=" list "><a class=" "  href="/logout">Logout</a></li>
+        <li class=" list "><a class=" "  href="/profil">Profil</a><i style="font-size: 16px" class="  ms-lg-3 fa-solid fa-arrow-down"></i></li>
       </ul>
 
+      <div class="drop">
+        <ul class=" list-unstyled">
+            <li class="list"><a href="/logout"><i class="fa-solid fa-right-from-bracket ms-sm-2"></i> Logout</a></li>
+        </ul>
+      </div>
 
     </div>
   </nav>
@@ -55,4 +61,13 @@
     document.body.classList.toggle(className);
   }
  });
+
+
+const down = document.querySelector(".fa-arrow-down")
+let dorp = document.querySelector(".drop")
+
+down.addEventListener("click", ()=>{
+    dorp.classList.toggle("none")
+})
+
   </script>
