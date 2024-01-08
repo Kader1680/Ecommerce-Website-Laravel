@@ -23,9 +23,10 @@ Route::post("/items/{id}", [CartController::class, "postProduct"]);
 Route::get("/products", [ProductsController::class, "allProduct"]);
 Route::get("/products/{id}", [ProductsController::class, "catProduct"]);
 Route::get("/categories", [categoryController::class, "categories"]);
-Route::get("/dashboard", [DashController::class, "DashBoard"]);
 
-Route::get("/", [DashController::class, "DashBoard"])->name("dashboard");
+Route::get("/dashboard", [DashController::class, "DashBoard"])->middleware("auth");
+
+// Route::get("/", [DashController::class, "DashBoard"])->name("dashboard");
 
 
 Route::get("/login", [AuthController::class, "loginPage"])->name("login");
@@ -33,6 +34,7 @@ Route::get("/register", [AuthController::class, "registerPage"])->name("register
 
 Route::post("/register", [AuthController::class, "postRegister"])->name("register");
 Route::post("/login", [AuthController::class, "postLogin"])->name("login");
+Route::get("logout", [AuthController::class, "logout"])->name("logout");
 
 
 

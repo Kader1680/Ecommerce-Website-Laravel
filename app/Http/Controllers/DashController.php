@@ -11,7 +11,7 @@ class DashController extends Controller
 {
 
         public function DashBoard(){
-
-        return view("dashboard");
-    }
+            $userAuth = auth::User();
+            return view("dashboard", compact('userAuth'));
+        }
 }

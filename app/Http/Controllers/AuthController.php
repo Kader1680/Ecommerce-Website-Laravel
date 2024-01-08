@@ -24,7 +24,7 @@ class AuthController extends Controller
             if (Auth::attempt($credetials)) {
                 return redirect('/dashboard');
         }else{
-            return 'false';
+            return redirect("login")->with("oopp");
         }
 
     }
@@ -36,10 +36,23 @@ class AuthController extends Controller
             $user->email = $request->input("email");
             $user->password = Hash::make($request->input("password"));
             $user->save();
-                if($user){
-                    return redirect()->route("dashboard");
+            $credetials = [
+                'email' => $request->email,
+                'password' => $request->password,
+            ];
 
-                }
+            if (Auth::attempt($credetials)) {
+                return redirect()->route("dashboard");
+            }
 
         }
-}
+
+
+
+        public function logout(){
+            Auth::logout();
+
+            return Redirect('login');
+            // return redirect('login')->with(Auth::logout());
+        }
+ }

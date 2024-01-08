@@ -1,4 +1,4 @@
-{{--
+
 @extends("layouts.master")
 @section("content")
 <main>
@@ -33,10 +33,10 @@
                             <label for="input-password">Password</label>
                             <input name="password" type="password" id="input-password" placeholder="At least 4 characters" required>
                         </div>
-                        <input type="submit"  name="submit" />
+
 
                         <div class="login-form-submit-btn">
-                            <button>
+                            <button type="submit">
                                 Create an Account
                             </button>
                         </div>
@@ -52,27 +52,8 @@
 </main>
 
 @endsection
- --}}
 
 
 
 
 
-
-
-
-
-
-
-@extends("layouts.master")
-
- @section('content')
- <form  style="margin-top: 15rem" action="{{ route("register") }}" method="POST">
-    @csrf
-        <input name="name" placeholder="name" type="text">
-        <input name="email" placeholder="email" type="text">
-        <input name="password" placeholder="password" type="password">
-        <input placeholder="submit" type="submit">
-
-</form>
- @endsection

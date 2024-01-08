@@ -1,4 +1,4 @@
-{{-- @extends("layouts.master")
+@extends("layouts.master")
 @section("content")
 <main>
     <section class="section-login">
@@ -31,6 +31,7 @@
                         <div class="login-form-5">
                             <p>  <input type="submit" name="submit" /> </p>
                         </div>
+                        <a href="/register">Register now</a>
                     </form>
 
                 </div>
@@ -40,20 +41,5 @@
 </main>
 
 @endsection
- --}}
 
 
-
-
-
-@extends("layouts.master")
-
-@section('content')
-    <form style="margin-top: 15rem" action="{{ route("login") }}" method="POST">
-        @csrf
-        <input name="email" placeholder="email" type="text">
-        <input name="password" placeholder="password" type="password">
-        <input placeholder="submit" type="submit">
-
-    </form>
-@endsection

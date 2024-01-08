@@ -15,7 +15,7 @@
 
 
 <nav class="navbar position-fixed mb-5">
-    <div class="logo"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AS_sample_logo.png" alt="LOGO"></div>
+    <div class="logo"><a href="/login"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AS_sample_logo.png" alt="LOGO"></a></div>
     <div class="push-left">
       <button id="menu-toggler" data-class="menu-active" class="hamburger">
         <span class="hamburger-line hamburger-line-top"></span>
@@ -36,8 +36,8 @@
             echo $count;
             ?></div>
         <li class=" list position-relative"><a class=" "  href="/items">Cart</a></li>
-        <li class=" list "><a class=" "  href="/profil">profil</a></li>
-        <li class=" list "><a class=" "  href="/login">Logout</a></li>
+        <li class=" list "><a class=" "  href="/dashboard">dashboard</a></li>
+        <li class=" list "><a class=" "  href="/logout">Logout</a></li>
       </ul>
 
 
