@@ -1,3 +1,4 @@
+{{--
 @extends("layouts.master")
 @section("content")
 <main>
@@ -11,18 +12,17 @@
                     <div class="section-login-1-img">
                         <img src="https://rvs-gradie-signup-page.vercel.app/Assets/iPhone-Mockup.png" alt="">
                     </div>
-
                 </div>
             </div>
             <div class="section-login-2">
                 <div class="section-login-2-main">
 
                     <h1 class="section-login-2-title">Sign In</h1>
-                    <form enctype="multipart/form-data"  method="POST" action="{{ route("register") }}" class="section-login-2-form">
+                    <form enctype="multipart/form-data"  method="POST" action=" {{ route("register") }} " class="section-login-2-form">
                         @csrf
 
                         <div class="login-form-1">
-                            <label  for="input-email">Email</label>
+                            <label   for="input-email">Email</label>
                             <input name="email" type="text" id="input-email" placeholder="john@gmail.com" required>
                         </div>
                         <div class="login-form-2">
@@ -33,14 +33,11 @@
                             <label for="input-password">Password</label>
                             <input name="password" type="password" id="input-password" placeholder="At least 4 characters" required>
                         </div>
-                        <div class="login-form-4">
-                            <input type="checkbox" id="input-checkbox">
-                            <p>By creating an account, you agree to the <a href="#">Terms & Conditions.</a></p>
-                        </div>
+                        <input type="submit"  name="submit" />
+
                         <div class="login-form-submit-btn">
                             <button>
                                 Create an Account
-                                <input type="submit"  name="submit" />
                             </button>
                         </div>
                         <div class="login-form-5">
@@ -55,4 +52,27 @@
 </main>
 
 @endsection
+ --}}
 
+
+
+
+
+
+
+
+
+
+
+@extends("layouts.master")
+
+ @section('content')
+ <form  style="margin-top: 15rem" action="{{ route("register") }}" method="POST">
+    @csrf
+        <input name="name" placeholder="name" type="text">
+        <input name="email" placeholder="email" type="text">
+        <input name="password" placeholder="password" type="password">
+        <input placeholder="submit" type="submit">
+
+</form>
+ @endsection

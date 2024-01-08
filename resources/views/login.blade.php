@@ -1,4 +1,4 @@
-@extends("layouts.master")
+{{-- @extends("layouts.master")
 @section("content")
 <main>
     <section class="section-login">
@@ -18,17 +18,18 @@
                 <div class="section-login-2-main">
 
                     <h1 class="section-login-2-title">Login</h1>
-                    <form class="section-login-2-form">
+                    <form method="POST" action=" {{ route("login") }} " class="section-login-2-form">
+                        @csrf
                         <div class="login-form-1">
                             <label for="input-email">Email</label>
-                            <input type="text" id="input-email" placeholder="john@gmail.com" required>
+                            <input name="email" type="text" id="input-email" placeholder="john@gmail.com" required>
                         </div>
                         <div class="login-form-3">
                             <label for="input-password">Password</label>
-                            <input type="password" id="input-password" placeholder="At least 4 characters" required>
+                            <input name="password" type="password" id="input-password" placeholder="At least 4 characters" required>
                         </div>
                         <div class="login-form-5">
-                            <p> <a href="#">Log In</a></p>
+                            <p>  <input type="submit" name="submit" /> </p>
                         </div>
                     </form>
 
@@ -39,4 +40,20 @@
 </main>
 
 @endsection
+ --}}
 
+
+
+
+
+@extends("layouts.master")
+
+@section('content')
+    <form style="margin-top: 15rem" action="{{ route("login") }}" method="POST">
+        @csrf
+        <input name="email" placeholder="email" type="text">
+        <input name="password" placeholder="password" type="password">
+        <input placeholder="submit" type="submit">
+
+    </form>
+@endsection

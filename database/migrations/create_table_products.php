@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer("quantity");
             $table->string("image");
             $table->integer("cat_id")->index();
+            $table->integer("user_id")->index();
             $table->timestamps();
         });
     }
