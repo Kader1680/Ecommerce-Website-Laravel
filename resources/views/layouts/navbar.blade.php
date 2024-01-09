@@ -38,11 +38,12 @@
         ?>
         </div>
         <li class=" list position-relative"><a class=" "  href="/items">Cart</a></li>
-        <li class=" list "><a class=" "  href="/profil">Profil</a><i style="font-size: 16px" class="  ms-lg-3 fa-solid fa-arrow-down"></i></li>
-      </ul>
+        <li class="list"><i style="font-size: 16px" class="  ms-lg-3 fa-solid fa-arrow-down"></i></li>
 
+      </ul>
       <div class="drop">
         <ul class=" list-unstyled">
+            <li class=" list "><a class=" "  href="/profil">Profil</a></li>
             <li class="list"><a href="/logout"><i class="fa-solid fa-right-from-bracket ms-sm-2"></i> Logout</a></li>
         </ul>
       </div>
