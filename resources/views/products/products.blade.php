@@ -163,7 +163,8 @@
                         </div>
                     </div>
                     <div class="separator clear-left mt-4 mb-3">
-                        <form action="{{ url('items', $product->id) }}" method="post">
+                        <form action="{{ url("items", $product->id) }}" method="post">
+                            {{-- url('items', $product->id) --}}
                             @csrf
 
                             <div class=" d-md-flex">

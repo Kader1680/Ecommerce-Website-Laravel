@@ -20,6 +20,7 @@
 
 @section("content")
 <div style="margin-top: 8rem" class="container">
+
        <div class="row">
             @foreach ($products as $p)
             <div class="col-md-3">
