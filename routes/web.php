@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\categoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashController;
 use App\Http\Controllers\HomeContoller;
 use App\Http\Controllers\ProductsController;
@@ -23,6 +24,8 @@ Route::get("/register", [AuthController::class, "registerPage"])->name("register
 Route::post("/register", [AuthController::class, "postRegister"])->name("register");
 Route::post("/login", [AuthController::class, "postLogin"])->name("login");
 Route::get("/logiut", [AuthController::class, "logout"])->name("logout");
+Route::get("/", [DashboardController::class, "dash"]);
+
 
 
 
