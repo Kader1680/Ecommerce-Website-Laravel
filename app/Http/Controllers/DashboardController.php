@@ -11,10 +11,12 @@ class DashboardController extends Controller
 {
     public function dash(){
 
-        $products = Products::all()->count();
-        $user = User::all()->count();
+        $productscout = Products::all()->count();
+        $products = Products::all();
+        $userCount = User::all()->count();
+        $user = User::all();
         $visiter = Carts::all()->where('id_user');
 
-        return view("dashboard", compact("products", "user", 'visiter'));
+        return view("dashboard", compact("productscout",  "user", "userCount", 'visiter', 'products'));
     }
 }

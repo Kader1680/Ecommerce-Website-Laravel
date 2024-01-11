@@ -1,9 +1,13 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
+.leftSide{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
 .leftSide div section div{
     width: calc(100% / 4);
     background-color: #d5d5d5;
-    height: 7rem;
+    height: 9.5rem;
     border: 1px solid #e7e7e7;
     text-align:center;
     display: flex;
@@ -11,10 +15,14 @@
     justify-content: center;
     border-left: 2px solid rgb(79, 126, 255);
 }
-.leftSide .col-md-3{
-    background-color: #d5d5d5;
+h2{
+    color:rgb(79, 126, 255);
 }
-.col-md-3 div{
+.leftSide .left{
+    background-color: #d5d5d5;
+    width: 95%;
+}
+.leftSide div div{
     background-color: rgb(79, 126, 255);
     color: white
 }
@@ -26,34 +34,130 @@ form, .delete{
 input{
     width: 100%;
 }
+a, a:hover{
+    color:white;
+    text-decoration:none;
+
+}
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  color:rgb(79, 126, 255);
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 20px 0px;
+}
+button{
+    background-color: rgb(34, 227, 82);
+    border:0;
+    color:white;
+    font-weight:bolder;
+}
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+
+
+}
+
+
 </style>
 
 <div class="">
-    <div class="leftSide row  ">
-        <div class="col-md-3">
-            <div class="p-3 mt-4">Dashboard</div>
-            <div class="p-3 mt-2 ">Admin Infomrmation</div>
-            <div class="p-3 mt-2 ">Add Poroduct</div>
-            <div class="p-3 mt-2 ">Delete Product</div>
-            <div class="p-3 mt-2 ">Purchase</div>
+
+    <div class="leftSide ">
+        <div class="left">
+            <div class="p-3 mt-4"><a href="">Dashboard</a></div>
+            <div class="p-3 mt-2 "><a href="">Admin Infomrmation</a></div>
+            <div class="p-3 mt-2 "><a href="#add">Add Poroduct</a></div>
+            <div class="p-3 mt-2 "><a href="#delete">Delete Product</a></div>
+            <div class="p-3 mt-2 "><a href="">All Products</a></div>
+            <div class="p-3 mt-2 "><a href="">All Informations Users</a></div>
         </div>
-        <div class="col-md-8">
-            <section class=" d-flex">
-                <div>{{ $products }} <br>  Products </div>
-                <div>{{ $user }} <br> Visiter </div>
+        <div class=" ">
+            <section >
+                <div style="width: 100%; height:14rem">
+                    <h2>Welcome To Admin Dashboared</h2>
+                </div>
+            </section>
+            <section class="mt-4 d-flex">
+                <div>{{ $productscout }} <br>  Products </div>
+                <div>{{ $userCount }} <br> Visiter </div>
                 <div>{{ $visiter }} <br> Customers </div>
                 <div>66  <br>  review Sellers</div>
             </section>
-            <section class=" mt-4">
-                <div style="width: 100%; height:14rem">Products</div>
-            </section>
         </div>
     </div>
+    <h2 class=" text-center mt-5 mb-5">Add a New Product As Admin User</h2>
 
-    <div class=" mt-3 d-md-flex align-content-center justify-content-center">
-        <form class="row" action="" method="post">
-            <h2 class=" text-center mt-5 mb-5">Add a New Product As Admin User</h2>
-            <div class=" col-md-6">
+    <div  class="d-md-flex align-content-center justify-content-center mt-3 ">
+        <form style="width: 100%" class="row p-4 " action="" method="post">
+            <div id="add" class="col-sm-12 col-md-6">
                 <label class="mb-3 p-2" for="">Products Name </label><br>
                 <label class="mb-3 p-2"  for="">Products Decription </label><br>
                 <label class="mb-3 p-2" for="">Products Price </label><br>
@@ -61,13 +165,13 @@ input{
                 <label class="mb-3 p-2" for="">Products Quantity </label><br>
 
             </div>
-            <div  class=" col-md-6">
+            <div  class="col-sm-12 col-md-6">
                 <input class="mb-3 p-2" type="text"><br>
                 <input class="mb-3 p-2" type="text"><br>
                 <input class="mb-3 p-2" min="5" type="text"><br>
                 <input class="mb-3 p-2" type="text"><br>
                 <input class="mb-3 p-2" type="text"><br>
-                <button class="mb-3 p-2"  style="width:100%" type="submit" class=" bg-danger btn">Add</button>
+                <button class="mb-3 p-2"  style="width:100%" type="submit" class="btn">Add New Product</button>
             </div>
 
         </form>
@@ -75,18 +179,58 @@ input{
 
 
 
-    <div class=" mt-4 delete d-md-flex align-content-center justify-content-center">
+
+    <h2 class=" text-center mt-5 mb-5">All Product</h2>
+
+    <div style="width: 100%" class=" mt-4 mb-4  d-md-flex align-content-center justify-content-center">
 
 
+        <table>
+            <thead>
 
-        <div class="row">
-            <h2 class=" text-center mt-5 mb-5">Delete All Products As Admin User</h2>
-            <form class="col-md-6" method="post">
-                <button class=" btn bg-danger"> Delete All</button>
-            </form>
-            <form class="col-md-6" method="post">
-                <button class=" btn bg-warning">Select & Delete Products</button>
-            </form>
-        </div>
+              <tr>
+                <th scope="col">Products</th>
+                <th scope="col">Descriptions</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($products as $product)
+              <tr>
+                    <td data-label="Account">{{ $product->name }}</td>
+                    <td data-label="Account">{{ $product->description }}</td>
+                    <td data-label="Account">{{ $product->price }} $</td>
+                    <td data-label="Account">{{ $product->quantity }}</td>
+              </tr>
+              @endforeach
+
+            </tbody>
+          </table>
+    </div>
+
+
+    <h2 class=" text-center">All Users & Clients</h2>
+
+    <div style="width: 100%" class=" mt-4 mb-4  d-md-flex align-content-center justify-content-center">
+        <table>
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($user as $us)
+              <tr>
+                    <td data-label="Account">{{ $us->name }}</td>
+                    <td data-label="Account">{{ $us->email }}</td>
+                    <td data-label="Account">{{ $us->phone }}</td>
+              </tr>
+              @endforeach
+
+            </tbody>
+          </table>
     </div>
 </div>

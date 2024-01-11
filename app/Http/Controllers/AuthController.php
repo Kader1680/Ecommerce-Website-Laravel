@@ -21,9 +21,15 @@ class AuthController extends Controller
                 'email' => $request->input("email"),
                 'password' => $request->input("password"),
             ];
+
+            $admin = "admin";
             if (Auth::attempt($credetials)) {
                 return redirect('/profil');
-        }else{
+        }elseif (Auth::attempt(['email' => $request->input($admin), 'password' => $request->input($admin)])) {
+            return redirect("/");
+        }
+        else
+        {
             return redirect("login")->with("oopp");
         }
 
