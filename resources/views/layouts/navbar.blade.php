@@ -14,8 +14,13 @@
 
 
 
-<nav class="navbar position-fixed mb-5">
-    <div class="logo"><a href="/home"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AS_sample_logo.png" alt="LOGO"></a></div>
+<nav class="navbar position-fixed mb-5 pt-5 pb-5">
+    <div class="logo">
+        <a class=" fw-bolder text-decoration-none" href="/home">
+        <h1> Brand</h1>
+            {{-- <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AS_sample_logo.png" alt="LOGO"> --}}
+        </a>
+    </div>
     <div class="push-left">
       <button id="menu-toggler" data-class="menu-active" class="hamburger">
         <span class="hamburger-line hamburger-line-top"></span>
