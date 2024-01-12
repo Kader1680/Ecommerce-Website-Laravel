@@ -1,13 +1,21 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+
 <style>
+body{
+    background: linear-gradient(45deg, hsl(185, 26%, 72%), hsl(224, 66%, 82%));
+    font-family: 'Lato', sans-serif;
+}
 .leftSide{
     display: grid;
     grid-template-columns: 30% 70%;
+
 }
 .leftSide div section div{
-    width: calc(100% / 4);
-    background-color: #d5d5d5;
-    height: 9.5rem;
+    width: calc(100% / 3);
+    background-color: #ffffff;
+    height: 11rem;
     border: 1px solid #e7e7e7;
     text-align:center;
     display: flex;
@@ -19,20 +27,21 @@ h2{
     color:rgb(79, 126, 255);
 }
 .leftSide .left{
-    background-color: #d5d5d5;
+    background-color: #ffffff;
     width: 95%;
+    padding:10px
 }
 .leftSide div div{
     background-color: rgb(79, 126, 255);
-    color: white
+    color: black
 }
-form, .delete{
-    background-color: #eaeaea;
-    width: 80%;
-    margin: auto;
+form{
+    background-color: #ffffff;
+
 }
 input{
     width: 100%;
+    border:2px solid rgb(79, 126, 255);
 }
 a, a:hover{
     color:white;
@@ -54,7 +63,7 @@ table caption {
 }
 
 table tr {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   border: 1px solid #ddd;
   padding: .35em;
 }
@@ -146,10 +155,9 @@ button{
                 </div>
             </section>
             <section class="mt-4 d-flex">
-                <div>{{ $productscout }} <br>  Products </div>
-                <div>{{ $userCount }} <br> Visiter </div>
-                <div>{{ $visiter }} <br> Customers </div>
-                <div>66  <br>  review Sellers</div>
+                <div><h3 style="font-size: 35px">{{ $productscout }} </h3><p class="  fw-bolder m-2 mt-1">Products</p> </div>
+                <div><h3>{{ $userCount }}</h3> <p class="  fw-bolder m-2 mt-1">Visiter</p> </div>
+                <div><h3>66</h3> <p class="  fw-bolder m-2 mt-1">review Sellers</p>  </div>
             </section>
         </div>
     </div>
@@ -166,12 +174,12 @@ button{
 
             </div>
             <div  class="col-sm-12 col-md-6">
-                <input class="mb-3 p-2" type="text"><br>
-                <input class="mb-3 p-2" type="text"><br>
-                <input class="mb-3 p-2" min="5" type="text"><br>
-                <input class="mb-3 p-2" type="text"><br>
-                <input class="mb-3 p-2" type="text"><br>
-                <button class="mb-3 p-2"  style="width:100%" type="submit" class="btn">Add New Product</button>
+                <input class="mb-3 p-2 rounded-3" type="text"><br>
+                <input class="mb-3 p-2 rounded-3" type="text"><br>
+                <input class="mb-3 p-2  rounded-3" min="5" type="text"><br>
+                <input class="mb-3 p-2  rounded-3" type="text"><br>
+                <input class="mb-3 p-2  rounded-3" type="text"><br>
+                <button class="mb-3 p-2  rounded-3"  style="width:100%" type="submit" class="btn">Add New Product</button>
             </div>
 
         </form>

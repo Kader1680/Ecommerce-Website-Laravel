@@ -33,6 +33,7 @@ body {
     width: 100%;
     height: auto;
     background: linear-gradient(45deg, hsl(185, 26%, 72%), hsl(224, 66%, 82%));
+    font-family: 'Lato', sans-serif;
 }
 .logo {
     max-width: 200px;
@@ -121,10 +122,6 @@ body {
     padding: 0;
     transition: all 0.25s ease-in;
   }
-
-
-
-
   @media screen and (max-width: 768px) {
     .nav-menu {
       background: #fff;
@@ -199,26 +196,19 @@ body {
 
       }
   .square-service-block a {
-    background-color: #e74c3c;
+    background-color: rgb(55, 93, 232);
     border-radius: 5px;
     display: block;
     text-align: center;
     width: 100%;
     text-decoration: none;
   }
-  .square-service-block a:hover{
-    background-color: rgba(231, 76, 60, 0.8);
-    border-radius: 5px;
-    border: none;
-  }
-
   h2.ssb-title {
     color: #fff;
     font-size: 20px;
     font-weight: 200;
     margin:0;
     padding: 1rem 0rem;
-    text-transform: uppercase;
   }
 
 

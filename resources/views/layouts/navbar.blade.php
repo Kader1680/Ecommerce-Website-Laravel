@@ -15,7 +15,7 @@
 
 
 <nav class="navbar position-fixed mb-5">
-    <div class="logo"><a href="/login"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AS_sample_logo.png" alt="LOGO"></a></div>
+    <div class="logo"><a href="/home"><img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AS_sample_logo.png" alt="LOGO"></a></div>
     <div class="push-left">
       <button id="menu-toggler" data-class="menu-active" class="hamburger">
         <span class="hamburger-line hamburger-line-top"></span>
@@ -33,11 +33,15 @@
         <div  class="count  text-white font-weight-bold rounded-3">
         <?php
             use Illuminate\Support\Facades\DB;
-            $count = DB::table('carts')->count();
+            use Illuminate\Support\Facades\Auth;
+            $auth = Auth::user()->id;
+            $count = DB::table('carts')->where('user_id', $auth)->count();
             echo $count;
         ?>
         </div>
-        <li class=" list position-relative"><a class=" "  href="/items">Cart</a></li>
+        <li class=" list position-relative"><a class=" "  href="/items">
+            {{-- <img src="{{ assets('image/shopping-cart.png') }}" > --}}carts
+        </a></li>
         <li class="list"><i style="font-size: 16px" class="  ms-lg-3 fa-solid fa-arrow-down"></i></li>
 
       </ul>
