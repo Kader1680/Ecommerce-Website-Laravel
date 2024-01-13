@@ -45,7 +45,8 @@
         ?>
         </div>
         <li class=" list position-relative"><a class=" "  href="/items">
-            {{-- <img src="{{ assets('image/shopping-cart.png') }}" > --}}carts
+            <img class="" height="30" width="30" src="{{ URL("assets\image\shopping-cart.png") }}" >
+
         </a></li>
         <li class="list"><i style="font-size: 16px" class="  ms-lg-3 fa-solid fa-arrow-down"></i></li>
 
