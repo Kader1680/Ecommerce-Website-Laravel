@@ -34,9 +34,6 @@
             </div>
         </div>
 
-
-
-
         <h1 class=" fw-bolder mt-md-5 mt-mb-5">Recoumended Items</h1>
 
         <div class="row mt-4">

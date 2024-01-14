@@ -5,13 +5,16 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-class ProfilController extends Controller
+use Illuminate\Support\Facades\DB;
 
+class ProfilController extends Controller
 
 {
 
         public function Profil(){
             $userAuth = auth::User();
-            return view("profil", compact('userAuth'));
+            $id = Auth::user()->id;
+            $products = DB::table("carts")->where("user_id", $id)->count();
+            return view("profil", compact('userAuth', 'products'));
         }
 }

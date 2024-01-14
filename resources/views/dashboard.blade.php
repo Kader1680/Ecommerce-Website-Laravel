@@ -142,7 +142,7 @@ button{
     <div class="leftSide ">
         <div class="left">
             <div class="p-3 mt-4"><a href="">Dashboard</a></div>
-            <div class="p-3 mt-2 "><a href="">Admin Infomrmation</a></div>
+            <div class="p-3 mt-2 "><a href="/">Back To Home Page</a></div>
             <div class="p-3 mt-2 "><a href="#add">Add Poroduct</a></div>
             <div class="p-3 mt-2 "><a href="#delete">Delete Product</a></div>
             <div class="p-3 mt-2 "><a href="">All Products</a></div>

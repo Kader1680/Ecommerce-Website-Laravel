@@ -30,7 +30,7 @@
 
                             <div class=" d-md-flex">
                                 <button class=" Cart  border-0" type="submit"><i class="fa-solid fa-cart-shopping"></i><span>add to cart</span></button>
-                                <button class="      Cart bg-primary border-0" type="submit"><i class="fa-solid fa-circle-info"></i> <a style="font-size: 13px" href="/products/{{ $product->id }}" class="text-white text-decoration-none">More details</a></button>
+                                <div class=" Cart bg-primary border-0"> <a style="font-size: 13px" href="/singleProduct/{{ $product->id }}" class="text-white text-decoration-none">View Details</a></div>
                             </div>
 
                         </form>

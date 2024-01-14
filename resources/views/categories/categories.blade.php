@@ -1,41 +1,51 @@
-{{-- @include("layouts.navbar")
 
+@extends("layouts.master")
 @section("content")
-@foreach ($products as $p)
 
-<div class="col-md-3">
-    <div class="square-service-block">
-    <a href="/categories/">
-        <img width="100%" height="180rem" src="{{ url($p->image) }}" alt="">
-        <h2 class="ssb-title">{{ $p->name }}</h2>
-    </a>
-    </div>
-</div>
-@endforeach
-@endsection
- --}}
+<div  class="container Products">
 
 
- @extends("layouts.master")
 
-@section("content")
-<div style="margin-top: 8rem" class="container">
 
-       <div class="row">
-            @foreach ($products as $p)
-            <div class="col-md-3">
-                <div class="square-service-block">
-                <a class="text-white" href="/products/{{  $p->id }}">
-                    <img width="100%" height="180rem" src="{{ url($p->image) }}" alt="">
-                    <h3 class="ssb-title">{{ $p->name }}</h3>
-                    <p class="ssb-title">Price {{ $p->price }} $</p>
-                    <p class="ssb-title">Quantity {{ $p->quantity }}</p>
-                </a>
+    <div class="row">
+        @foreach ($products as $product)
+        <div class="col-sm-3 mb-5">
+            <div class="col-item">
+                <div class="photo">
+                    <img width="100" height="100px" src="{{ url("$product->image") }}" class="img-responsive" alt="a" />
+                </div>
+                <div class="info">
+                    <div class="">
+                        <div class="price">
+                            <h3 class="fw-bold" style="font-size: 22px"><span class="price-text-color">{{$product->price }} $</span> </h3>
+                            <p class="" style="width: 100%^; font-size:18px" >{{$product->name }}</h3>
+                            <h4 >Qauntiy :<span class="price-text-color">{{$product->quantity }} </span></h4>
+                        </div>
+
+                    </div>
+                    <div class="separator clear-left mt-4 mb-3">
+                        <form action="{{ url("items", $product->id) }}" method="post">
+                            {{-- url('items', $product->id) --}}
+                            @csrf
+                            <div class=" d-md-flex">
+                                <button class="Cart  border-0" type="submit"><i class="fa-solid fa-cart-shopping"></i><span>add to cart</span></button>
+                                <div class="Cart bg-primary border-0"><i class="fa-solid fa-circle-info"></i> <a style="font-size: 13px" href="/products/{{ $product->id }}" class="text-white text-decoration-none">More details</a></div>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
             </div>
-            @endforeach
+        </div>
+        @endforeach
 
-       </div>
+    </div>
+
 </div>
 
+
+
 @endsection
+
+
+

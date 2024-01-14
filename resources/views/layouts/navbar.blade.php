@@ -1,22 +1,7 @@
-<style>
-    /* Extra */
-/* body {
-  background: #ccc;
-  color: #272727;
-  font-size: 14px;
-  margin: 0;
-} */
-
-
-</style>
-
-
-
-
 
 <nav class="navbar position-fixed mb-5 pt-5 pb-5">
     <div class="logo">
-        <a class=" fw-bolder text-decoration-none" href="/home">
+        <a class=" fw-bolder text-decoration-none" href="/">
         <h1> Brand</h1>
             {{-- <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/AS_sample_logo.png" alt="LOGO"> --}}
         </a>
@@ -30,7 +15,7 @@
 
       <!--  Menu compatible with wp_nav_menu  -->
       <ul id="primary-menu" class="menu nav-menu">
-        <li class=" list"><a class=" "  href="/home">Home</a></li>
+        <li class=" list"><a class=" "  href="/">Home</a></li>
         <li class=" list"><a class=" "  href="/products">Prodcuts</a></li>
 
         <li class=" list "><a class=" "  href="/categories">Categories</a></li>
@@ -39,9 +24,15 @@
         <?php
             use Illuminate\Support\Facades\DB;
             use Illuminate\Support\Facades\Auth;
-            $auth = Auth::user()->id;
-            $count = DB::table('carts')->where('user_id', $auth)->count();
-            echo $count;
+            $user = Auth()->user();
+            $count  = 0;
+            if ($user) {
+                $idAuth = $user->id;
+                $count = DB::table('carts')->where('user_id', $idAuth)->count();
+                echo $count;
+            }else {
+                echo $count;
+            }
         ?>
         </div>
         <li class=" list position-relative"><a class=" "  href="/items">

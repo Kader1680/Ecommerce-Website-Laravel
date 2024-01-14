@@ -6,7 +6,7 @@
 
 
 
-    <div style="margin-top: 8rem" class="container">
+    <div style="margin-top: 12rem" class="container">
            <div class="row">
 
                 @foreach ($allcategorie as $list)

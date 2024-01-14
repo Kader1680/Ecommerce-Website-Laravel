@@ -21,8 +21,9 @@ class ProductsController extends Controller
     public function catProduct($id){
 
         $products = DB::table("products")->where("id", $id)->get();
+        $homeProducts = DB::table("products")->limit(4)->get();
 
-        return view("products.products", ["products" => $products]);
+        return view("products.singleProduct", ["products" => $products], compact("homeProducts"));
     }
 
 
