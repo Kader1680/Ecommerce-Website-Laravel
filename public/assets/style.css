@@ -25,7 +25,12 @@
     --space-1: 1rem;
 }
 
-
+@media(max-width:767px){
+    ul .count {
+        right: 16rem;
+        top: 21rem;
+    }
+}
 
 @media(max-width:991px){
 .navbar{
@@ -40,8 +45,8 @@
     height: 37em;
 }
 ul .count{
-    right: 15rem;
-    top: 23rem;
+    right: 35rem;
+    top: 18rem;
 }
 .navbar ul .list{
     margin: 17px 10px;
@@ -452,17 +457,21 @@ main section.section-login .section-main .section-login-2 .section-login-2-main 
         top: 0;
     }
     .count{
-
-        right: 108px;
-    top: 31px;
+        right: 197px;
+        top: 21px;
     }
 }
 .count{
+    width: 30px;
     position: fixed;
-    background-color: #ec5656;
+    background-color: #5684ec;
     z-index: 3;
     font-weight: 800;
     padding: 4px;
+    height: 32px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 50%;
 
 
 

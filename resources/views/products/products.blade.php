@@ -6,7 +6,10 @@
 
 
 
-
+    <form action="" method="">
+        <input type="text" value="SDSD" >
+        <input value="SS" type="submit">
+    </form>
     <div class="row">
         @foreach ($products as $product)
         <div class="col-sm-3 mb-5">

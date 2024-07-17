@@ -15,10 +15,10 @@ class CartController extends Controller
     // }
     public function getCarts(){
         $id = Auth::user()->id;
-        // echo typeOf($id);
-        // dd(gettype($id));
+
         $carts = DB::table("carts")->where("user_id", $id)->get();
         // $carts = DB::table("carts")->get();
+        // dd($carts->count());
         return view("carts", ["carts"=>$carts]);
     }
     public function postProduct(Request $request, $id){
@@ -39,3 +39,5 @@ class CartController extends Controller
         return Redirect()->route('items');
     }
 }
+
+

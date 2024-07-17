@@ -12,6 +12,7 @@ class ProfilController extends Controller
 {
 
         public function Profil(){
+            $this->authorize('gateProfil');
             $userAuth = auth::User();
             $id = Auth::user()->id;
             $products = DB::table("carts")->where("user_id", $id)->count();

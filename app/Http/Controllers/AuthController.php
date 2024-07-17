@@ -40,7 +40,9 @@ class AuthController extends Controller
             $user = new User();
             $user->name = $request->input("name");
             $user->email = $request->input("email");
+            // $user->phone = $request->input("phone");
             $user->phone = $request->input("phone");
+        
             $user->password = Hash::make($request->input("password"));
             $user->save();
             $credetials = [
@@ -56,10 +58,17 @@ class AuthController extends Controller
 
 
 
-        public function logout(){
-            Auth::logout();
 
-            return Redirect('login');
-            // return redirect('login')->with(Auth::logout());
+        public function logout(Request $request){
+            Auth::logout();
+            return redirect('login');
+        }
+
+        public function gta(Request $request){
+            $validated = $request->validate([
+                'title' => 'required|unique:posts|max:255',
+            ]);
         }
  }
+
+

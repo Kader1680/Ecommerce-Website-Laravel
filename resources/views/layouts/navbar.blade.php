@@ -20,7 +20,7 @@
 
         <li class=" list "><a class=" "  href="/categories">Categories</a></li>
 
-        <div  class="count  text-white font-weight-bold rounded-3">
+        <div  class="count  text-white font-weight-bold">
         <?php
             use Illuminate\Support\Facades\DB;
             use Illuminate\Support\Facades\Auth;
@@ -35,19 +35,30 @@
             }
         ?>
         </div>
-        <li class=" list position-relative"><a class=" "  href="/items">
+        <li class=" list position-relative">
+          <a class=" "  href="/items">
+          
             <img class="" height="30" width="30" src="{{ URL("assets\image\shopping-cart.png") }}" >
 
-        </a></li>
-        <li class="list"><i style="font-size: 16px" class="  ms-lg-3 fa-solid fa-arrow-down"></i></li>
-
+          </a>
+        </li>
+        @php
+                  $user = Auth::user();
+                
+        @endphp
+        @if($user)
+        <li class=" list ">
+              <a href="/profil">
+                {{ $user->name }}
+              </a>
+        </li>
+        <li class="list"><a href="logout"> Logout</a></li>
+        @else
+        <li class="list"><a href="login"></i> login</a></li>
+        @endif
+       
       </ul>
-      <div class="drop">
-        <ul class=" list-unstyled">
-            <li class=" list "><a class=" "  href="/profil">Profil</a></li>
-            <li class="list"><a href="/logout"><i class="fa-solid fa-right-from-bracket ms-sm-2"></i> Logout</a></li>
-        </ul>
-      </div>
+      
 
     </div>
   </nav>

@@ -66,7 +66,6 @@
         <th>Description</th>
         <th class="text-right">Qauntity</th>
         <th class="text-right">Price</th>
-        <th class="text-right">Total</th>
       </tr>
 
       @foreach ($carts as $cart)
@@ -85,7 +84,14 @@
 
       <tr class="total-row info">
         <td class="text-right" colspan="4">Total</td>
-        <td class="text-right">18.00 $</td>
+        <?php
+            $total = 0;
+            for ($i=0; $i <8 ; $i++) {
+
+                $total += $cart->price;
+            }
+        ?>
+        <td class="text-right">{{ $total }}</td>
       </tr>
     </table>
   </div>
