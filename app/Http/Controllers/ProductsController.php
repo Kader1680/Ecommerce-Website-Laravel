@@ -12,11 +12,34 @@ class ProductsController extends Controller
 
 
 
-    public function allProduct(){
+    public function allProduct(Request $request){
 
         $products = DB::table("products")->get();
 
-        return view("products.products", ["products" => $products]);
+        $query = Products::query();
+        
+        if ($request->input('under_price')) {
+            
+            $query->where('price', '<', 50);
+        }
+        if ($request->input('over_price')) {
+            
+            $query->where('price', '>', 50);
+        }
+        if ($request->input('good_rating')) {
+            
+            $query->where('price', '<', 50);
+        }
+        if ($request->input('bad_rating')) {
+            
+            $query->where('price', '<', 50);
+        }
+        if ($request->input('popular_selling')) {
+            
+            $query->where('price', '<', 50);
+        }
+        $allProductQuery = $query->get();
+        return view("products.products", ["products" => $allProductQuery]);
     }
 
     public function catProduct($id){
@@ -38,5 +61,10 @@ class ProductsController extends Controller
         return view('products.products', compact('products'));
     }
 
+    // public function filterPrice(Request $request){
+        
+
+    //     return view("products.products", ["allProductQuery" => $allProductQuery]);
+    // }
 
 }

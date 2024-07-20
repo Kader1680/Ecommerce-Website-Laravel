@@ -19,7 +19,7 @@ Route::post("/items/{id}", [CartController::class, "postProduct"])->middleware("
 Route::delete("/items/{id}", [CartController::class, "removeProduct"])->middleware("auth");
 
 
-Route::get("/products", [ProductsController::class, "allProduct"]);
+Route::get("/products", [ProductsController::class, "allProduct"])->name('products');
 Route::get("/singleProduct/{id}", [ProductsController::class, "catProduct"])->middleware("auth");
 Route::get("/categories", [categoryController::class, "categories"]);
 Route::get("/categories/{cat_id}", [categoryController::class, "filterc"]);

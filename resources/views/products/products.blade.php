@@ -51,7 +51,7 @@
 
 
 
-    <div class="row height d-flex justify-content-center align-items-center">
+    {{-- <div class="row height d-flex justify-content-center align-items-center">
 
         <div class="col-md-8">
 
@@ -65,19 +65,84 @@
         </div>
         
     </div>
-    <br>
+    <br> --}}
  
     
-    <ul>
+    {{-- <ul>
         @foreach ($products as $product)
             <li>{{ $product->name }}</li>
         @endforeach
-    </ul>
+    </ul> --}}
 
    
+    <div class="checkout">
+        <form action="{{ route("products") }}" method="GET">
+            <h3>Price</h3>
+            <div class=" d-flex ">
+                <input value="50" name="under_price" style="width: 20px" type="checkbox" 
+                
+                onChange="this.form.submit()" {{ request()->filled('under_price') ? 'checked' : ''}}
+                
+                
+                >
+                <h5  class=" mt-3 ms-2"><label for="min_price"  >under 50 $</label></h5><br>
+            </div>
+            <div class=" d-flex ">
+                <input style="width: 20px" type="checkbox" name="over_price" value="50"
+                
+                onChange="this.form.submit()" {{ request()->filled('over_price') ? 'checked' : ''}}
+                >
+                <h5 class=" mt-3 ms-2"><label for="max_price"  >over 50 $</label></h5><br>
+            </div>
+            <hr width="100px">
+            <h3>Rating</h3>
+
+            <div class=" d-flex ">
+                <input style="width: 20px" type="checkbox" name="vehicle1" value="Bike">
+                <h5 class=" mt-3 ms-2"><label for="vehicle1">Popular Rating</label></h5><br>
+            </div>
+            <div class=" d-flex ">
+                <input style="width: 20px" type="checkbox" name="vehicle1" value="Bike">
+                <h5 class=" mt-3 ms-2"><label for="vehicle1">Top Rating</label></h5><br>
+            </div>
+            <hr width="100px">
+            <h3>Selling</h3>
+            <div class=" d-flex ">
+                <input style="width: 20px" type="checkbox" name="vehicle1" value="Bike">
+                <h5 class=" mt-3 ms-2"><label for="vehicle1">Popular Selling</label></h5><br>
+            </div>
+            
+            <hr width="100px">
+            <input type="checkbox" name="vehicle3" value="Boat">
+            <label for="vehicle2"> made in usa</label>
+
+          </form>
+
+{{-- 
+          <form method="GET" action="{{ route('products') }}">
+            <div class="form-group">
+                <label for="min_price">Min Price:</label>
+                <input type="number" name="min_price" id="min_price" class="form-control" value="{{ request('min_price') }}">
+            </div>
+            <div class="form-group">
+                <label for="max_price">Max Price:</label>
+                <input type="number" name="max_price" id="max_price" class="form-control" value="{{ request('max_price') }}">
+            </div>
+            <div class="form-group">
+                <label for="rating">Rating:</label>
+                <input type="number" step="0.1" name="rating" id="rating" class="form-control" value="{{ request('rating') }}">
+            </div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+            <button type="submit" class="btn btn-secondary" name="price_filter" value="under_50">Under $50</button>
+            <button type="submit" class="btn btn-secondary" name="price_filter" value="over_50">Over $50</button>
+        </form> --}}
+    </div>
+
+
+ 
     <div class="row">
         @foreach ($products as $product)
-        <div class="col-sm-3 mb-5">
+        <div class="col-sm-3 mb-5 ">
             <div class="col-item">
                 <div class="photo">
                     <img width="100" height="100px" src="{{ url("$product->image") }}" class="img-responsive" alt="a" />
