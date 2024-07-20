@@ -13,7 +13,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [HomeContoller::class, "homePage"]);
 Route::get("/items", [CartController::class, "getCarts"])->name("items")->middleware("auth");
+
+
 Route::post("/items/{id}", [CartController::class, "postProduct"])->middleware("auth");
+Route::delete("/items/{id}", [CartController::class, "removeProduct"])->middleware("auth");
+
+
 Route::get("/products", [ProductsController::class, "allProduct"]);
 Route::get("/singleProduct/{id}", [ProductsController::class, "catProduct"])->middleware("auth");
 Route::get("/categories", [categoryController::class, "categories"]);

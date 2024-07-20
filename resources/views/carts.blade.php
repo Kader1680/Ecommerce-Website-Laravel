@@ -52,6 +52,18 @@
   .table-xs .total-row td:first-child {
     width: 99%;
   }
+
+  
+  .success-msg {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    background-color: #06b671de;
+    }
+  
+
+
 }
 
 
@@ -60,12 +72,22 @@
 
 @section("content")
 <div style="margin-top: 10rem" class="container">
+
+  @if (\Session::has('success'))
+    <div class="alert alert-success">
+        <ul>
+            <li>{!! \Session::get('success') !!}</li>
+        </ul>
+    </div>
+  @endif
+
     <table class="table table-xs">
       <tr>
         <th></th>
         <th>Description</th>
         <th class="text-right">Qauntity</th>
         <th class="text-right">Price</th>
+        <th class="text-right">Operation</th>
       </tr>
 
       @foreach ($carts as $cart)
@@ -79,6 +101,19 @@
         </td>
         <td class="text-right" title="Amount">{{ $cart->quantity }}</td>
         <td class="text-right" title="Price">{{ $cart->price }}</td>
+
+        <td class="text-right" title="Price">
+              <form  method="POST" action="{{ url('/items/' . $cart->id) }}">
+                @csrf
+                @method("DELETE")
+                <button style="background-color: #fd3c3c" class="rounded-3 border-0 p-1 delete text-white" type="submit">
+                  remove
+                </button>
+              </form>         
+        </td>
+
+
+        <td class="text-right" title="Price"><button style="background-color: #06b671de" class=" rounded-3 border-0 p-1 text-white">confirm</button></td>
       </tr>
        @endforeach
 

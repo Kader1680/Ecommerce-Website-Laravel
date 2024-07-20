@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Carts;
 use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -15,10 +16,7 @@ class CartController extends Controller
     // }
     public function getCarts(){
         $id = Auth::user()->id;
-
         $carts = DB::table("carts")->where("user_id", $id)->get();
-        // $carts = DB::table("carts")->get();
-        // dd($carts->count());
         return view("carts", ["carts"=>$carts]);
     }
     public function postProduct(Request $request, $id){
@@ -37,6 +35,19 @@ class CartController extends Controller
         // products
         // return Redirect()->route('products');
         return Redirect()->route('items');
+    }
+
+    public function removeProduct($id){
+
+        $prodcutId = Carts::find($id);
+        $prodcutId->delete();
+        if ($prodcutId) {
+            $prodcutId->delete();
+            return redirect()->back()->with('success', 'your message,here');
+        } else {
+            return response()->json(['message' => 'Product not found.'], 404);
+        }
+
     }
 }
 

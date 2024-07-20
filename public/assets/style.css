@@ -27,8 +27,11 @@
 
 @media(max-width:767px){
     ul .count {
-        right: 16rem;
+        right: 15rem;
         top: 21rem;
+    }
+    .table-xs .item-row img {
+        width: 100%
     }
 }
 
@@ -457,8 +460,8 @@ main section.section-login .section-main .section-login-2 .section-login-2-main 
         top: 0;
     }
     .count{
-        right: 197px;
-        top: 21px;
+        right: 148px;
+        top: 17px;
     }
 }
 .count{

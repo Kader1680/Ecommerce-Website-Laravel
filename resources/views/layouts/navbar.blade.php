@@ -52,7 +52,7 @@
                 {{ $user->name }}
               </a>
         </li>
-        <li class="list"><a href="logout"> Logout</a></li>
+        <li class="list"><a href="logout">Logout</a></li>
         @else
         <li class="list"><a href="login"></i> login</a></li>
         @endif
