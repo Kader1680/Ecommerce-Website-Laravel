@@ -133,6 +133,10 @@
 @endsection
 
 
+
+
+
+
 <script>
 $('a.remove').click(function(){
   event.preventDefault();

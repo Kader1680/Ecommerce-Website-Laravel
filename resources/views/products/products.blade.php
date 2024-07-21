@@ -46,6 +46,87 @@
         background: #0d6efd;
 
        }
+
+
+       .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.rating {
+  --star-size: clamp(2rem, 5vw, 6rem);
+  --star-clr-inactive: rgba(128, 128, 128, 0.7);
+  --star-clr-active: rgb(245, 158, 11);
+  --star-clr-hover: rgba(236, 201, 136, 0.2);
+  --star-clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+label {
+  position: relative;
+  cursor: pointer;
+  width: var(--star-size);
+  height: var(--star-size);
+}
+label::before {
+  content: "";
+  position: absolute;
+  inset: 50%;
+  border-radius: 50%;
+  background-color: var(--star-clr-hover);
+  transition: rotate 450ms ease-in-out, inset 300ms ease-in-out;
+  clip-path: var(--star-clip-path);
+}
+label:hover::before {
+  inset: -1rem;
+  rotate: 45deg;
+}
+label::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--star-clr-inactive);
+  clip-path: var(--star-clip-path);
+  transition: 300ms ease-in-out;
+  scale: 0.75;
+}
+label:has(~ label:hover)::after,
+label:has(~ label > :checked)::after,
+label:has(:checked)::after,
+label:hover::after {
+  background-color: var(--star-clr-active);
+  scale: 1;
+}
+
+label:hover ~ label::after {
+  scale: 0.75;
+}
+label:active::before {
+  inset: -2rem;
+}
+
+
+
+
 </style>
 <div  class="container Products">
 
@@ -118,24 +199,7 @@
 
           </form>
 
-{{-- 
-          <form method="GET" action="{{ route('products') }}">
-            <div class="form-group">
-                <label for="min_price">Min Price:</label>
-                <input type="number" name="min_price" id="min_price" class="form-control" value="{{ request('min_price') }}">
-            </div>
-            <div class="form-group">
-                <label for="max_price">Max Price:</label>
-                <input type="number" name="max_price" id="max_price" class="form-control" value="{{ request('max_price') }}">
-            </div>
-            <div class="form-group">
-                <label for="rating">Rating:</label>
-                <input type="number" step="0.1" name="rating" id="rating" class="form-control" value="{{ request('rating') }}">
-            </div>
-            <button type="submit" class="btn btn-primary">Filter</button>
-            <button type="submit" class="btn btn-secondary" name="price_filter" value="under_50">Under $50</button>
-            <button type="submit" class="btn btn-secondary" name="price_filter" value="over_50">Over $50</button>
-        </form> --}}
+
     </div>
 
 
@@ -153,6 +217,14 @@
                             <h3 class="fw-bold" style="font-size: 22px"><span class="price-text-color">{{$product->price }} $</span> </h3>
                             <p class="" style="width: 100%^; font-size:18px" >{{$product->name }}</h3>
                             <h4 >Qauntiy :<span class="price-text-color">{{$product->quantity }} </span></h4>
+                            <div class="rating">
+                                <label for="radio-1" aria-label="Rating 1"><input type="radio" name="rating" id="radio-1" class="sr-only"></label>
+                                <label for="radio-2" aria-label="Rating 2"> <input type="radio" name="rating" id="radio-2" class="sr-only"></label>
+                                <label for="radio-3" aria-label="Rating 3"><input type="radio" name="rating" id="radio-3" class="sr-only" checked></label>
+                                <label for="radio-4" aria-label="Rating 4"><input type="radio" name="rating" id="radio-4" class="sr-only"></label>
+                                <label for="radio-5" aria-label="Rating 5"><input type="radio" name="rating" id="radio-5" class="sr-only"></label>
+                            </div>    
+                        
                         </div>
 
                     </div>
