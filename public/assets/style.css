@@ -42,14 +42,16 @@
 }
 .navbar ul{
     top: 8rem;
-    background-color: white;
+     
     z-index: 2;
     position: fixed;
     height: 37em;
 }
 ul .count{
-    right: 35rem;
+    right: 34rem;
     top: 18rem;
+    color: #6521d1;
+    background-color: green;
 }
 .navbar ul .list{
     margin: 17px 10px;
@@ -93,10 +95,11 @@ a {
 
 }
 
-body {
+html body {
     width: 100%;
     height: auto;
-    background: linear-gradient(45deg, hsl(185, 26%, 72%), hsl(224, 66%, 82%));
+    background-color: #000000de;
+    /* background: linear-gradient(45deg, hsl(185, 26%, 72%), hsl(224, 66%, 82%)); */
     font-family: 'Lato', sans-serif;
 }
 .logo {
@@ -231,7 +234,7 @@ body {
     border: 1px solid #ccc;
     display: none;
     position: absolute;
-    background-color: #7c1313;
+    background-color: #7d6cff;
     padding: 5px 5px;
     list-style: none;
     width: 230px;

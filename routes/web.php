@@ -32,7 +32,7 @@ Route::get("/register", [AuthController::class, "registerPage"])->name("register
 Route::post("/register", [AuthController::class, "postRegister"])->name("register");
 Route::post("/login", [AuthController::class, "postLogin"])->name("login");
 Route::get("/logout", [AuthController::class, "logout"])->name(('logout'));
-Route::get("/dashboard", [DashboardController::class, "dash"]);
+Route::get("/dashboard", [DashboardController::class, "dash"])->middleware('admin');
 Route::get("/payement", [payementController::class, "payement"]);
 
 

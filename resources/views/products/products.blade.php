@@ -37,7 +37,7 @@
     right: 5px;
     height: 40px;
     width: 100px;
-    background-color: #0d6efd;
+    background-color: #09b83e;
     color: white;
     border: none;
     border-radius: 8px;
@@ -45,7 +45,7 @@
 }
 
 .search button:hover {
-    background-color: #0056b3;
+    background-color: #2db241;
 }
 
 /* Star Rating Styling */
@@ -97,7 +97,7 @@
 .product-card .price {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #0d6efd;
+    color: #31d64a;
 }
 
 .product-card .quantity {
@@ -110,11 +110,14 @@
     display: flex;
     gap: 10px;
     margin-top: 10px;
+   
+   
 }
 
 .product-card .btn {
     flex: 1;
     font-size: 14px;
+     
 }
 </style>
 
@@ -180,11 +183,11 @@
                                 <div class="btn-group">
                                     <form action="{{ url('items', $product->id) }}" method="POST">
                                         @csrf
-                                        <button class="btn btn-outline-primary" type="submit">
+                                        <button class="btn  " style="color:  #09b83e; border:1px solid #09b83e;"  type="submit">
                                             <i class="fa-solid fa-cart-shopping"></i> Add to Cart
                                         </button>
                                     </form>
-                                    <a href="/singleProduct/{{ $product->id }}" class="btn btn-primary">View Details</a>
+                                    <a href="/singleProduct/{{ $product->id }}" style="background-color:  #09b83e;" class="btn text-white ">View Details</a>
                                 </div>
                             </div>
                         </div>

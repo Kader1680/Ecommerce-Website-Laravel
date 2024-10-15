@@ -17,7 +17,7 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Auth::user()->email == "admin" &&  Auth::user()->password == "$2y$12$8Uh2huz1MxIMa0dMC32z4uTcE.SeK.NzfygzWYOg.EtmeBpsmT.XW") {
+        if (Auth::user()->name == "admin") {
             return $next($request);
         }
         abort(401);
