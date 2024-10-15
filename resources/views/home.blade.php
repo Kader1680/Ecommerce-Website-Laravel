@@ -36,7 +36,7 @@
                     <li><h5><a href="">Men & Childrens</a></h5></li>
                 </ul>
             </div>
-            <img height="30%" class=" col-md-8"  width="50%" src="{{  URL("assets\image\banner.png") }}" alt="">
+            <img height="30%" class=" col-md-8"  width="50%" src="{{  URL("assets\image\home.png") }}" alt="">
             <div class="right col-md-2">
                 <div style="background-color: #E3F0FF" class="one mb-3 p-4 rounded-3">
                     <div>
@@ -59,7 +59,7 @@
             <div class="col-sm-3 mb-5">
                 <div class="col-item">
                     <div class="photo">
-                        <img width="100" height="100px" src="{{ url("$product->image") }}" class="img-responsive" alt="a" />
+                        <img width="100" height="100px" src="{{ asset('assets/image/' . $product->image) }}" class="img-responsive" alt="a" />
                     </div>
                     <div class="info">
                         <div class="">
@@ -112,7 +112,7 @@
             <div class="col-sm-3 mb-5">
                 <div class="col-item">
                     <div class="photo">
-                        <img width="100" height="100px" src="{{ url("$product->image") }}" class="img-responsive" alt="a" />
+                        <img width="100" height="100px" src="{{ asset('assets/image/' . $product->image) }}" class="img-responsive" alt="a" />
                     </div>
                     <div class="info">
                         <div class="">

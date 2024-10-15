@@ -16,7 +16,7 @@
         <div class="mt-5">
             <div class=" row">
                 <div class="col-md-3 photo">
-                    <img  src="{{ url("$product->image") }}" class="img-responsive" alt="a" />
+                    <img  src="{{ asset('assets/image/' . $product->image) }}" class="img-responsive" alt="a" />
                 </div>
                 <div class="col-md-5 info">
                     <div class="">
@@ -53,7 +53,7 @@
         <div class="col-sm-3 mb-5">
             <div class="col-item">
                 <div class="photo">
-                    <img width="100" height="100px" src="{{ url("$product->image") }}" class="img-responsive" alt="a" />
+                    <img width="100" height="100px" src="{{ asset('assets/image/' . $product->image) }}" class="img-responsive" alt="a" />
                 </div>
                 <div class="info">
                     <div class="">

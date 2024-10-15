@@ -38,7 +38,7 @@
         <li class=" list position-relative">
           <a class=" "  href="/items">
           
-            <img class="" height="30" width="30" src="{{ URL("assets\image\shopping-cart.png") }}" >
+            <img class="" height="60" width="60" src="{{ URL("assets\image\cart.png") }}" >
 
           </a>
         </li>
