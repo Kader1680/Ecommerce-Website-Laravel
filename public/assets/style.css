@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-@import url(https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+@import url(https://netdna.bootstrapcdn.com/dant-awesome/4.0.3/css/font-awesome.min.css);
 
 :root {
     --brand-clr: hsl(185, 85%, 40%);
@@ -518,13 +518,12 @@ main section.section-login .section-main .section-login-2 .section-login-2-main 
 }
 @media(min-width:768px){
     .Cart{
-    width: 50%;
-    padding: 1.5rem;
+    width: 100px;
+    padding: 10px;
+     
+   }
 }
-}
-.Cart{
-    background-color: rgba(75, 205, 132, 1);
-}
+ 
 .Products{
     margin-top: 16rem;
 }

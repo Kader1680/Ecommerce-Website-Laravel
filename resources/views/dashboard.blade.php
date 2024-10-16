@@ -121,6 +121,31 @@
         </form>
     </div>
 
+
+
+    <h2 class="text-center mt-5 mb-5">Add a New Category</h2>
+    <div class="card">
+        <form class="row p-4" action="{{route("category")}}" method="post" enctype="multipart/form-data">
+        @csrf
+            <div class="col-md-6">
+                <div class="mb-3">
+                    <label for="nameCat" class="form-label">Category Name</label>
+                    <input name="nameCat" type="text" class="form-control" id="productName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="imageCat" class="form-label">Upoload Description</label>
+                    <input name="imageCat" type="file" class="form-control" id="productDescription" required>
+                </div>
+                 
+               
+               
+                <button type="submit" class="btn">Add</button>
+            </div>
+        </form>
+    </div>
+
+
+
     <h2 class="text-center">All Products</h2>
     <div class="card">
         <table class="table table-striped">

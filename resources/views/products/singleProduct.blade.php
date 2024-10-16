@@ -53,9 +53,6 @@
 </style>
 <div style="margin-top: 10rem" class="container">
 
-
-
-
     <div class="">
         @foreach ($products as $product)
         <div class="mt-5">
@@ -66,10 +63,10 @@
                 <div class="col-md-5 info">
                     <div class="">
                         <div class="price">
-                            <h1 class="fw-bold" style="font-size: 40px"><span class="price-text-color">{{$product->name }} </span> </h1>
-                            <p class="" style="width: 100%^; font-size:18px" >{{$product->price }} $</p>
-                            <p class="" style="width: 100%^; font-size:18px" >{{$product->description }} </p>
-                            <h4 >Qauntiy (  <span class="price-text-color">{{$product->quantity }} </span>)</h4>
+                            <h1 class="fw-bold" style="font-size: 40px; color:#09b83f"><span class="">{{$product->name }} </span> </h1>
+                            <p class=" text-white" style="width: 100%; font-size:18px" >{{$product->price }} $</p>
+                            <p class=" text-white" style="width: 100%; font-size:18px" >{{$product->description }} </p>
+                            <h4 class=" text-white" >Qauntiy    <span class="price-text-color font-bold " style="color: #09b83f"> (  {{$product->quantity }} ) </span>  </h4>
                         </div>
 
                     </div>
@@ -77,8 +74,9 @@
                         <form action="{{ url("items", $product->id) }}" method="post">
                             {{-- url('items', $product->id) --}}
                             @csrf
-                            <div class="">
-                                <button class="Cart  border-0" type="submit"><i class="fa-solid fa-cart-shopping"></i><span>add to cart</span></button>
+                            <div class=" d-flex gap-3">
+                                <button style="border: 2px solid #09b83f; color:#09b83f" class="Cart roudend-3 fs-5" type="submit"><span>add to cart</span></button>
+                                <button style="background-color: #09b83f;" class="Cart text-white fs-5 font-bold  border-0" type="submit"><span>Order NoW </span></button>
                             </div>
                         </form>
 

@@ -36,6 +36,7 @@ Route::get("/dashboard", [DashboardController::class, "dash"])->middleware('admi
 Route::get("/payement", [payementController::class, "payement"]);
 
 
+Route::post("/dashboard", [DashboardController::class, "addCategory"])->name("category");
 
 
 

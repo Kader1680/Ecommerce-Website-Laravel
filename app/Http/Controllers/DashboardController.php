@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Carts;
+use App\Models\Categorys;
 use App\Models\Products;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -18,5 +19,25 @@ class DashboardController extends Controller
         $visiter = Carts::all()->where('id_user');
 
         return view("dashboard", compact("productscout",  "user", "userCount", 'visiter', 'products'));
+    }
+
+    public function addCategory(Request $request){
+
+        // $validate = $request->validate([
+
+        //     "nameCat" => "string" 
+             
+        // ]) ;
+
+        $allcategorie = Categorys::create([
+
+             'nameCat' => $request->input("nameCat") ,
+            
+            'imageCat' => $request->file('imageCat')->store('image', 'public')  
+
+        ]);
+
+        return $allcategorie;
+
     }
 }

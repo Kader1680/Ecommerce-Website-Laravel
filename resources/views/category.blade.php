@@ -1,94 +1,35 @@
 
-    @extends("layouts.master")
-
-    @section("content")
 
 
+   @extends('layouts.master')
+
+@section('content')
+<div class="container mx-auto p-8 mt-24" style="margin-top: 19rem; color:red   ">
+
+  <h1 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+    Browse Categories
+  </h1>
 
 
-    <div style="margin-top: 12rem" class="container">
-           <div class="row">
+  <!-- Categories Grid -->
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
-                @foreach ($allcategorie as $list)
+    @foreach ($allcategorie as $category)
+    <div class="relative group bg-white rounded-lg shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 p-6">
 
-                <div class="col-md-3">
-                    <div class="square-service-block">
-                    <a href="/categories/{{ $list->id }}">
-                        <img width="100%" height="180rem" src="{{ url($list->imageCat) }}" alt="">
-                        <h2 class="ssb-title">{{ $list->nameCat }}</h2>
-                    </a>
-                    </div>
-                </div>
-                @endforeach
+      <!-- Category Image -->
+      <img width="200"   src="{{ asset('storage/' . $category->imageCat) }}" alt="Category Image" class="object-cover w-full h-48 rounded-lg shadow-md">
 
-           </div>
+      <h3>{{ $category->nameCat }}</h3>
+      <!-- Category Info -->
+      <div class="text-center">
+       
+       
+      </div>
+ 
     </div>
+    @endforeach
 
-
-
-
-
-    @endsection
-
-
-
-
-
-
-
-{{--
-    <div class="col-md-3">
-        <div class="square-service-block">
-           <a href="#">
-             <div class="ssb-icon"><i class="fa fa-camera" aria-hidden="true"></i></div>
-             <h2 class="ssb-title">Photography</h2>
-           </a>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="square-service-block">
-           <a href="#">
-             <div class="ssb-icon"><i class="fa fa-font" aria-hidden="true"></i></div>
-             <h2 class="ssb-title">Fonts</h2>
-           </a>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="square-service-block">
-           <a href="#">
-             <div class="ssb-icon"><i class="fa fa-cubes" aria-hidden="true"></i></div>
-             <h2 class="ssb-title">Mockups</h2>
-           </a>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="square-service-block">
-           <a href="#">
-             <div class="ssb-icon"><i class="fa fa-eyedropper" aria-hidden="true"></i></div>
-             <h2 class="ssb-title">Colours</h2>
-           </a>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="square-service-block">
-           <a href="#">
-             <div class="ssb-icon"><i class="fa fa-youtube" aria-hidden="true"></i> </div>
-             <h2 class="ssb-title">Video</h2>
-           </a>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="square-service-block">
-           <a href="#">
-             <div class="ssb-icon"><i class="fa fa-volume-up" aria-hidden="true"></i> </div>
-             <h2 class="ssb-title">Audio</h2>
-           </a>
-        </div>
-      </div>
-
-   </div> --}}
+  </div>
+</div>
+@endsection

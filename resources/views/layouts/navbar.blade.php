@@ -14,7 +14,7 @@
 
           <!-- Menu -->
           <ul id="primary-menu" class="menu nav-menu d-flex align-items-center">
-              <li class="list me-3"><a class="text-white" href="/">Home</a></li>
+              <li class="list me-3"><a class="text-white bg-black" href="/">Home</a></li>
               <li class="list me-3"><a class="text-white" href="/products">Products</a></li>
               <li class="list me-3"><a class="text-white" href="/categories">Categories</a></li>
 
@@ -23,7 +23,7 @@
                   <a class="text-white" href="/items">
                       {{-- <img height="30" width="30" src="{{ URL('assets/image/cart.png') }}" alt="Cart"> --}}
                       Carts
-                      <span class=" text-black count position-absolute top-0 start-100 translate-middle badge rounded-pill ">
+                      <span class=" position-absolute top-0 start-100 translate-middle badge rounded-pill ">
                           <?php
                           use Illuminate\Support\Facades\DB;
                           use Illuminate\Support\Facades\Auth;

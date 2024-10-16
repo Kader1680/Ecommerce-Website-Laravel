@@ -1,24 +1,30 @@
 @extends("layouts.master")
 
 @section("content")
-<div class="container mx-auto p-6 mt-20">
+<div style="margin-top: 15rem" class="container mx-auto p-6 mt-20 row bg-white">
 
-  @if (\Session::has('success'))
+  {{-- @if (\Session::has('success'))
     <div class="success-msg">
         <ul>
             <li>{!! \Session::get('success') !!}</li>
         </ul>
     </div>
-  @endif
+  @endif --}}
 
-  <div style="margin-top: 15rem" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+
+
+  <div  class=" col-8 border-bottom  ">
     @foreach ($carts as $cart)
-    <div class="bg-white rounded-lg shadow-md overflow-hidden p-4">
-      <img  src="{{ asset('assets/image/' . $cart->image) }}"  alt="{{ $cart->name }}" class="w-full h-40 object-cover mb-4">
-      <h3 class="text-lg font-bold">{{ $cart->name }}</h3>
-      <p class="text-gray-500 text-sm my-2">
-        Amet et esse do nostrud id irure cupidatat labore nulla irure laboris.
-      </p>
+
+
+    <div class=" rounded-lg shadow-md mt-2  p-4  d-flex  ">
+
+
+          <img width="100"  src="{{ asset('assets/image/' . $cart->image) }}"  alt="{{ $cart->name }}" class="     object-cover mb-4">
+          <div class=" ms-4">
+            <h3 class="text-lg font-bold">{{ $cart->name }}</h3>
+            <p style="width: 50%">Et mollitia excepturi dolorem est recusandae ut molestiae neque assumenda.</p>
+          </div>
 
       <div class="flex justify-between items-center mt-4">
         <p class="font-semibold">Quantity: {{ $cart->quantity }}</p>
@@ -34,23 +40,67 @@
           </button>
         </form>
 
-        <a href="/payement" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
-          Buy
-        </a>
+        
       </div>
-    </div>
-    @endforeach
-  </div>
 
-  <div class="mt-10 text-right">
+
+
+    </div>
+
+
+
+    @endforeach
+    <hr>
+   </div>
+
+
+
+  <div class="       col-4 ">
     <?php
       $total = 0;
       foreach ($carts as $cart) {
         $total += $cart->price;
       }
-    ?>
+    ?>*
+
+    
     <h2 class="text-xl font-bold">Total: ${{ $total }}</h2>
+    <div class="text-center fs-4 px-4 py-2 font" style="width:100%; background-color: 09B83F;">
+      <a href="/payement" class=" text-white  text-decoration-none   rounded bg-black">
+        Checkout
+  
+         
+      </a>
+    </div>
+    
+
+    <hr>
+    <h3 class=" fw-bold">Promotion</h3>
+    <div class=" border border-1 mt-4 mb-4 p-3">
+      <span class=" fw-bold">ACCAGE0923 </span>is applied <br>
+      Udemy coupon
+    </div>
+
+    <form action="" method="post" >
+      <div class="row  ">
+        <div class="mb-3 col-9">
+        
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          
+        </div>
+        <div class="text-center   font col-3"  >
+          <button style="border: 2px solid #09B83F; background-color:#09B83F" class=" fs-5 px-4 py-2 text-white  outline-none">Apply</button>
+        </div>
+      </div>
+     
+      
+    </form>
   </div>
+
+
+
+
+
 </div>
 @endsection
 

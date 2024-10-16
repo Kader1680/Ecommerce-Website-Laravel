@@ -37,7 +37,7 @@
 <style>
 /* Footer Styles */
 .footer {
-  background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Gradient background */
+  background-color: #070707; /* Gradient background */
   color: #fff; /* Text color */
 }
 

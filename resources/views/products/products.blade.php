@@ -177,9 +177,9 @@
                         <div class="product-card">
                             <img src="{{ asset('assets/image/' . $product->image) }}" alt="{{ $product->name }}">
                             <div class="info">
-                                <p class="price">${{ $product->price }}</p>
-                                <p class="name">{{ $product->name }}</p>
-                                <p class="quantity">Quantity: {{ $product->quantity }}</p>
+                                <p class="price fs-1">${{ $product->price }}</p>
+                                <p class="name text-white fs-2">{{ $product->name }}</p>
+                                <p class="quantity text-white fs-4">Quantity: {{ $product->quantity }}</p>
                                 <div class="btn-group">
                                     <form action="{{ url('items', $product->id) }}" method="POST">
                                         @csrf
