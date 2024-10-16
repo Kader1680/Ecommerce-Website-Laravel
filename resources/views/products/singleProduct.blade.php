@@ -70,15 +70,15 @@
                         </div>
 
                     </div>
-                    <div class="separator">
+                    <div class="separator d-flex gap-3">
                         <form action="{{ url("items", $product->id) }}" method="post">
                             {{-- url('items', $product->id) --}}
                             @csrf
                             <div class=" d-flex gap-3">
                                 <button style="border: 2px solid #09b83f; color:#09b83f" class="Cart roudend-3 fs-5" type="submit"><span>add to cart</span></button>
-                                <button style="background-color: #09b83f;" class="Cart text-white fs-5 font-bold  border-0" type="submit"><span>Order NoW </span></button>
                             </div>
                         </form>
+                        <button style="background-color: #09b83f;" class="Cart text-white fs-5 font-bold  border-0" type="submit"><span> <a href="/payement">Order Now</a> </span></button>
 
                     </div>
                 </div>
@@ -89,7 +89,7 @@
 
 
 
-    <h1 class=" fw-bolder mt-md-5 mt-mb-5">Recoumended Items</h1>
+    <h1 class=" fw-bolder mt-md-5 mt-mb-5 text-white">Recoumended Items</h1>
 
 
     <div class="col-md-9">

@@ -25,23 +25,31 @@
             <h3 class="text-lg font-bold">{{ $cart->name }}</h3>
             <p style="width: 50%">Et mollitia excepturi dolorem est recusandae ut molestiae neque assumenda.</p>
           </div>
+      
 
-      <div class="flex justify-between items-center mt-4">
-        <p class="font-semibold">Quantity: {{ $cart->quantity }}</p>
-        <p class="font-semibold">Price: ${{ $cart->price }}</p>
-      </div>
+          <div  class="flex justify-between text">
+            <form method="POST" action="{{ url('/items/' . $cart->id) }}">
+              @csrf
+              @method("DELETE")
+              <button style="color: #09B83F" class="border-0 bg-transparent">
+                Remove
+              </button>
+            </form>
+    
+            <form method="POST" action="{{ url('/items/' . $cart->id) }}">
+              @csrf
+              @method("DELETE")
+              <button style="color: #09B83F" class="border-0 bg-transparent mt-2">
+                Save from Later
+              </button>
+            </form>
+          </div>
 
-      <div class="flex justify-between mt-4">
-        <form method="POST" action="{{ url('/items/' . $cart->id) }}">
-          @csrf
-          @method("DELETE")
-          <button class="bg-red-500 hover:bg-red-600 text-black px-4 py-2 rounded">
-            Remove
-          </button>
-        </form>
+          
+          <p  class="font-semibold"><span class=" fw-bolder fs-4" style="color: #09B83F">${{ $cart->price }}</span> </p> 
+ 
 
-        
-      </div>
+     
 
 
 

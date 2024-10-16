@@ -15,9 +15,57 @@
   padding: 5px;
   width: 100px;
   font-size: 15px;
-  background-color: #036bff;
+  background-color: #09b83e;
   color: white;
   border-radius: 50px;
+}
+
+.product-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card .info {
+    padding: 15px;
+}
+
+.product-card .price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #31d64a;
+}
+
+.product-card .quantity {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #6c757d;
+}
+
+.product-card .btn-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+   
+   
+}
+
+.product-card .btn {
+    flex: 1;
+    font-size: 14px;
+     
 }
 </style>
 <div class="container">
@@ -51,46 +99,11 @@
                 <div class="three p-4 mb-3 text-white rounded-3"><h3>Send quotes with supplier preferences</h3></div>
             </div>
         </div>
+ 
 
-        <h1 class=" fw-bolder mt-md-5 mt-mb-5">Recommended Good Product</h1>
+        
 
-        <div class="row mt-4">
-            @foreach ($products as $product)
-            <div class="col-sm-3 mb-5">
-                <div class="col-item">
-                    <div class="photo">
-                        <img width="100" height="100px" src="{{ asset('assets/image/' . $product->image) }}" class="img-responsive" alt="a" />
-                    </div>
-                    <div class="info">
-                        <div class="">
-                            <div class="price">
-                                <h3 class="fw-bold" style="font-size: 22px"><span class="price-text-color">{{$product->price }} $</span> </h3>
-                                <p class="" style="width: 100%^; font-size:18px" >{{$product->name }}</h3>
-                                <h4 >Qauntiy :<span class="price-text-color">{{$product->quantity }} </span></h4>
-                            </div>
-
-                        </div>
-                        <div class="separator clear-left mt-4 mb-3">
-                            <form action="{{ url("product", $product->id) }}" method="post">
-                                {{-- url('items', $product->id) --}}
-                                @csrf
-
-                                <div class=" d-md-flex">
-                                    <button class=" Cart  border-0" type="submit"><i class="fa-solid fa-cart-shopping"></i><span>add to cart</span></button>
-                                    <button class="      Cart bg-primary border-0" type="submit"><i class="fa-solid fa-circle-info"></i> <a style="font-size: 13px" href="/product/{{ $product->id }}" class="text-white text-decoration-none">More details</a></button>
-                                </div>
-
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-
-        </div>
-
-        <h1 class=" fw-bolder mt-md-5 mt-mb-5">Clothes & T-Shirt</h1>
+        <h1 class=" text-white fw-bolder mt-md-5 mb-5">Most Popular & Buying</h1>
         <section>
                 <form action="" method="get">
                     <button id="btn" name="all" value="all" class="cat">All</button>
@@ -109,37 +122,26 @@
         
         <div class="row mt-4">
             @foreach ($products as $product)
-            <div class="col-sm-3 mb-5">
-                <div class="col-item">
-                    <div class="photo">
-                        <img width="100" height="100px" src="{{ asset('assets/image/' . $product->image) }}" class="img-responsive" alt="a" />
-                    </div>
+            <div class="col-sm-6 col-md-4 mb-4">
+                <div class="product-card">
+                    <img src="{{ asset('assets/image/' . $product->image) }}" alt="{{ $product->name }}">
                     <div class="info">
-                        <div class="">
-                            <div class="price">
-                                <h3 class="fw-bold" style="font-size: 22px"><span class="price-text-color">{{$product->price }} $</span> </h3>
-                                <p class="" style="width: 100%^; font-size:18px" >{{$product->name }}</h3>
-                                <h4 >Qauntiy :<span class="price-text-color">{{$product->quantity }} </span></h4>
-                            </div>
-
-                        </div>
-                        <div class="separator clear-left mt-4 mb-3">
-                            <form action="{{ url("product", $product->id) }}" method="post">
-                                {{-- url('items', $product->id) --}}
+                        <p class="price fs-1">${{ $product->price }}</p>
+                        <p class="name text-white fs-2">{{ $product->name }}</p>
+                        <p class="quantity text-white fs-4">Quantity: {{ $product->quantity }}</p>
+                        <div class="btn-group">
+                            <form action="{{ url('items', $product->id) }}" method="POST">
                                 @csrf
-
-                                <div class=" d-md-flex">
-                                    <button class=" Cart  border-0" type="submit"><i class="fa-solid fa-cart-shopping"></i><span>add to cart</span></button>
-                                    <button class="      Cart bg-primary border-0" type="submit"><i class="fa-solid fa-circle-info"></i> <a style="font-size: 13px" href="/product/{{ $product->id }}" class="text-white text-decoration-none">More details</a></button>
-                                </div>
-
+                                <button class="btn  " style="color:  #09b83e; border:1px solid #09b83e;"  type="submit">
+                                    <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                                </button>
                             </form>
-
+                            <a href="/singleProduct/{{ $product->id }}" style="background-color:  #09b83e;" class="btn text-white ">View Details</a>
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
+        @endforeach
 
 
 

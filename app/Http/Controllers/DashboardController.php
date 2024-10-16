@@ -33,7 +33,7 @@ class DashboardController extends Controller
 
              'nameCat' => $request->input("nameCat") ,
             
-            'imageCat' => $request->file('imageCat')->store('image', 'public')  
+            'imageCat' => $request->file('imageCat')->storeAs('image', 'public')  
 
         ]);
 
