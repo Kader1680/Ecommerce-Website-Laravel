@@ -46,19 +46,32 @@ class ProductsController extends Controller
 
         $products = DB::table("products")->where("id", $id)->get();
         $homeProducts = DB::table("products")->limit(4)->get();
-
         return view("products.singleProduct", ["products" => $products], compact("homeProducts"));
+    
     }
 
 
     public function search(Request $request)
     {
         $query = $request->input('query');
-        $products = Products::where('name', 'LIKE', "%$query%")
-                        ->orWhere('description', 'LIKE', "%$query%")
-                        ->paginate(10);
-                        
-        return view('products.products', compact('products'));
+
+        if (!$query) {
+            return redirect()->back()->with("message", "Please enter a search term.");
+        }       
+        
+        $products = Products::where(function ($q) use ($query) {
+            $q->where('name', 'LIKE', "%{$query}%")
+              ->orWhere('description', 'LIKE', "%{$query}%");
+        })
+        ->paginate(10);
+
+        if (!$products) {
+            return 'not found';
+        }else{
+            return view('products.products', compact('products'));
+        }
+
+        
     }
 
     // public function filterPrice(Request $request){

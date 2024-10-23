@@ -41,9 +41,19 @@
               @if($user)
                   <li class="list me-3"><a class="text-white" href="/profil">{{ $user->name }}</a></li>
                   <li class="list"><a class="text-white" href="/logout">Logout</a></li>
+                   
+                  <li class="list me-3"><a class="text-white" href="/dashboard">dashboard</a></li>
+                   
+                   
               @else
+
                   <li class="list"><a class="text-white" href="/login">Login</a></li>
               @endif
+
+               
+             
+               
+            
           </ul>
       </div>
   </div>

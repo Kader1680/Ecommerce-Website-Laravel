@@ -21,6 +21,7 @@ Route::delete("/items/{id}", [CartController::class, "removeProduct"])->middlewa
 
 
 Route::get("/products", [ProductsController::class, "allProduct"])->name('products');
+Route::post("/products", [ProductsController::class, "search"])->name('products');
 Route::get("/singleProduct/{id}", [ProductsController::class, "catProduct"])->middleware("auth");
 Route::get("/product/{id}", [ProductsController::class, "catProduct"]);
 Route::get("/categories", [categoryController::class, "categories"]);

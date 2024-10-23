@@ -128,8 +128,11 @@
         <div class="col-md-8">
             <div class="search">
                 <i class="fa fa-search"></i>
-                <input type="text" name="query" value="{{ request()->input('query') }}" class="form-control" placeholder="Search for products...">
-                <button type="submit" class="btn">Search</button>
+                <form method="POST" action="{{ route('products') }}">
+                    @csrf
+                    <input type="text" name="query" value="{{ request()->input('query') }}" class="form-control" placeholder="Search for products...">
+                    <button type="submit" class="btn">Search</button>
+                </form>
             </div>
         </div>
     </div>

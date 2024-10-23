@@ -1,8 +1,12 @@
+
+@extends('layouts.master')
+
+@section('content')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <style>
     body {
-        background: linear-gradient(45deg, hsl(185, 26%, 72%), hsl(224, 66%, 82%));
+        background: #212121;
         font-family: 'Lato', sans-serif;
         color: #333;
     }
@@ -16,13 +20,13 @@
         background-color: #fff;
         border-radius: 8px;
         padding: 20px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px #09B83F;
     }
     .leftSide div {
         margin-bottom: 10px;
     }
     h2 {
-        color: rgb(79, 126, 255);
+        color: #09B83F;
     }
     h3 {
         font-weight: bold;
@@ -35,7 +39,7 @@
         padding: 20px;
     }
     input {
-        border: 2px solid rgb(79, 126, 255);
+        border: 2px solid #09B83F;
         border-radius: 4px;
     }
     button {
@@ -52,7 +56,7 @@
         background-color: rgb(25, 180, 60);
     }
     .table thead {
-        background-color: rgb(79, 126, 255);
+        background-color: #09B83F;
         color: white;
     }
     @media (max-width: 600px) {
@@ -62,7 +66,7 @@
     }
 </style>
 
-<div class="container">
+<div class="container" style="margin-top: 15rem">
     <div class="leftSide">
         <div class="left">
             <h4>Admin Dashboard</h4>
@@ -192,3 +196,7 @@
         </table>
     </div>
 </div>
+
+
+
+@endsection
