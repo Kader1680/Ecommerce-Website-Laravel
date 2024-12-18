@@ -14,7 +14,7 @@ class ProductsController extends Controller
 
     public function allProduct(Request $request){
 
-        $products = DB::table("products")->get();
+        $products = DB::table("sell_prod_view")->get();
 
         $query = Products::query();
         

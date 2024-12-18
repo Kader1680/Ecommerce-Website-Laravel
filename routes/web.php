@@ -6,9 +6,10 @@ use App\Http\Controllers\categoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashController;
 use App\Http\Controllers\HomeContoller;
-use App\Http\Controllers\payementController;
 use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\ProfilController;	
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SellerController;
+use App\Http\Controllers\StripController;	
 use Illuminate\Support\Facades\Route;
 
 
@@ -34,12 +35,24 @@ Route::post("/register", [AuthController::class, "postRegister"])->name("registe
 Route::post("/login", [AuthController::class, "postLogin"])->name("login");
 Route::get("/logout", [AuthController::class, "logout"])->name(('logout'));
 Route::get("/dashboard", [DashboardController::class, "dash"])->middleware('admin');
-Route::get("/payement", [payementController::class, "payement"]);
+// Route::get("/payement", [payementController::class, "payement"]);
 
 
 Route::post("/dashboard", [DashboardController::class, "addCategory"])->name("category");
 
 
+Route::get("/sellers", [SellerController::class, "getSellers"]);
 
 
 
+// payment with the payapl
+
+// Route::get("/payement", [StripController::class, "payement"]); 
+// Route::get("/payement           /cancel", [StripController::class, "cancel"]);
+// Route::get("/payament/success", [StripController::class, "success"]);
+
+
+Route::get('/payement', [StripController::class, "index"]);
+Route::post('/charge', [StripController::class, "charge"]);
+Route::get('/success', [StripController::class, "success"]);
+Route::get('/error', [StripController::class, "error"]);

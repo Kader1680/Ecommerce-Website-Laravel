@@ -182,6 +182,8 @@
                             <div class="info">
                                 <p class="price fs-1">${{ $product->price }}</p>
                                 <p class="name text-white fs-2">{{ $product->name }}</p>
+                                <p class="name text-primary fs-1 ">{{ $product->username }}</p>
+                             
                                 <p class="quantity text-white fs-4">Quantity: {{ $product->quantity }}</p>
                                 <div class="btn-group">
                                     <form action="{{ url('items', $product->id) }}" method="POST">

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string("image");
             $table->integer("cat_id")->index();
             $table->integer("user_id")->index();
+            $table->integer("custumor_id")->index();
             $table->timestamps();
         });
     }

@@ -147,7 +147,13 @@ body {
 }
 </style>
 
-<div class="container">
+<div class="container" style="margin-top: 19rem">
+
+    <form action="{{ url('charge') }}" method="post">
+        @csrf
+        <input type="text" name="amount" value="10.00" />
+        <input type="submit" name="submit" value="Pay Now" />
+    </form>
     <div class="row">
         
         <div class="col-12 mt-4">
