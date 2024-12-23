@@ -14,4 +14,9 @@ class SellerController extends Controller
         $sellers = Seller::all();
         return view("sellers", compact("sellers"));
     }
+
+
+
+
+     
 }

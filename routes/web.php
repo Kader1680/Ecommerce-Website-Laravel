@@ -56,3 +56,6 @@ Route::get('/payement', [StripController::class, "index"]);
 Route::post('/charge', [StripController::class, "charge"]);
 Route::get('/success', [StripController::class, "success"]);
 Route::get('/error', [StripController::class, "error"]);
+
+
+

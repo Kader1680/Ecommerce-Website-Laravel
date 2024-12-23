@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +18,8 @@ class AuthController extends Controller
             return view("register");
         }
 
-        public function postLogin(Request $request){
+
+        public function postLogin(LoginRequest $request){
             $credetials = [
                 'email' => $request->input("email"),
                 'password' => $request->input("password"),
@@ -30,19 +33,16 @@ class AuthController extends Controller
         }
         else
         {
-            return redirect("login")->with("oopp");
+            return redirect("login")->with("Alert Message");
         }
 
     }
-        public function postRegister(Request $request){
-            // $password = Hash::make($request->input('password'));
+        public function postRegister(RegisterRequest $request){
 
             $user = new User();
             $user->name = $request->input("name");
             $user->email = $request->input("email");
-            // $user->phone = $request->input("phone");
-            $user->phone = $request->input("phone");
-        
+            $user->phone = $request->input("phone");    
             $user->password = Hash::make($request->input("password"));
             $user->save();
             $credetials = [
@@ -57,18 +57,12 @@ class AuthController extends Controller
         }
 
 
-
-
         public function logout(Request $request){
             Auth::logout();
             return redirect('login');
         }
 
-        public function gta(Request $request){
-            $validated = $request->validate([
-                'title' => 'required|unique:posts|max:255',
-            ]);
-        }
+        
  }
 
 
