@@ -63,7 +63,7 @@
 
 
 
-  <div class="       col-4 ">
+  <div class="col-4 ">
     <?php
       $total = 0;
       foreach ($carts as $cart) {
@@ -74,11 +74,17 @@
     
     <h2 class="text-xl font-bold">Total: ${{ $total }}</h2>
     <div class="text-center fs-4 px-4 py-2 font" style="width:100%; background-color: 09B83F;">
-      <a href="/payement" class=" text-white  text-decoration-none   rounded bg-black">
-        Checkout
-  
-         
-      </a>
+
+
+
+       <form     action="{{ route("items") }}" method="POST">
+         @csrf
+
+          <input class=" text-black  text-decoration-none rounded bg-black" type="submit">
+
+        </form>
+
+
     </div>
     
 

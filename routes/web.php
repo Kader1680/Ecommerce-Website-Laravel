@@ -6,6 +6,8 @@ use App\Http\Controllers\categoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashController;
 use App\Http\Controllers\HomeContoller;
+use App\Http\Controllers\orderController;
+use App\Http\Controllers\orderItemController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\SellerController;
@@ -59,3 +61,9 @@ Route::get('/error', [StripController::class, "error"]);
 
 
 
+
+
+
+Route::post("/items", [orderController::class, "checkOut"])->name('items');
+Route::get("/orders", [orderController::class, "index"]);
+Route::get("/orderitems", [orderItemController::class, "store"]);
