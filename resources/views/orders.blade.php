@@ -25,18 +25,33 @@
                     {{-- <td>${{ number_format($order->total_price, 2) }}</td> --}}
                     <td>
                         <span class="badge 
-                            {{ $order->status == 'pending' ? 'badge-warning' : 
-                               ($order->status == 'completed' ? 'badge-success' : 'badge-danger') }}">
+                            {{ $order->status == 'pending' ? 'bg-warning' : 
+                               ($order->status == 'completed' ? 'bg-success' : 'bg-danger') }}">
+
+
                             {{ ucfirst($order->status) }}
                         </span>
                     </td>
 
                     <td>
 
+
+                        
                         <form action="{{route("complete", $order->id)}}" method="post">
+                            
+                            
                             @csrf
                             @method('PUT')
-                            <input type="submit" name="confirm" value="confirm" />
+
+                            @if ($order->status === "completed")
+                              <input disabled type="submit" name="confirm" value="done" />
+                            
+                            @else
+                                <input type="submit" name="confirm" value="confirm" />
+                            
+                            @endif
+
+                           
                         </form>
                         
                         
