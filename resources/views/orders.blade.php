@@ -31,7 +31,18 @@
                         </span>
                     </td>
 
-                    <td>confirm</td>
+                    <td>
+
+                        <form action="{{route("complete", $order->id)}}" method="post">
+                            @csrf
+                            @method('PUT')
+                            <input type="submit" name="confirm" value="confirm" />
+                        </form>
+                        
+                        
+                        
+                    
+                    </td>
 
                     
                     {{-- <td>

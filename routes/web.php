@@ -66,4 +66,5 @@ Route::get('/error', [StripController::class, "error"]);
 
 Route::post("/items", [orderController::class, "checkOut"])->name('items');
 Route::get("/orders", [orderController::class, "index"]);
+Route::put("/orders/{id}", [orderController::class, "makePayment"])->name("complete");
 Route::get("/orderitems", [orderItemController::class, "store"]);

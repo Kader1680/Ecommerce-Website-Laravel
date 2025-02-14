@@ -28,6 +28,17 @@ class orderController extends Controller
         return view('orders', compact('orders'));
     }
 
+    public function makePayment($id){
+
+        $updateOrderStatus = Order::find($id);
+        $updateOrderStatus->status = 'completed';
+        $updateOrderStatus->save();
+
+        return $updateOrderStatus;
+
+    }
+
+
 
 
 
