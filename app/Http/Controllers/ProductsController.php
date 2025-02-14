@@ -17,8 +17,19 @@ class ProductsController extends Controller
         $products = DB::table("sell_prod_view")->get();
 
         $query = Products::query();
+
+        // $varFilter = "under_price";
+        // switch ($request->input($varFilte)) {
+        //     case 'value':
+        //         # code...
+        //         break;
+            
+        //     default:
+        //         # code...
+        //         break;
+        // }
         
-        if ($request->input('under_price')) {
+        if ($request->input("under_price")) {
             
             $query->where('price', '<', 50);
         }

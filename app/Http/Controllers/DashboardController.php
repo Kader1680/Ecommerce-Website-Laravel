@@ -23,21 +23,25 @@ class DashboardController extends Controller
 
     public function addCategory(Request $request){
 
-        // $validate = $request->validate([
+        $validate = $request->validate([
 
-        //     "nameCat" => "string" 
+            "nameCat" => "required|string", 
+            'imageCat' => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
              
-        // ]) ;
+        ]);
+
+        $filename = time() . '.' . $request->file('imageCat')->getClientOriginalExtension();
+        $path = $request->file('imageCat')->storeAs('images', $filename, 'public');
 
         $allcategorie = Categorys::create([
 
-             'nameCat' => $request->input("nameCat") ,
+            'nameCat' => $request->input("nameCat") ,
             
-            'imageCat' => $request->file('imageCat')->storeAs('image', 'public')  
+            'imageCat' => $filename
 
         ]);
 
-        return $allcategorie;
+        return redirect()->back()->with('success', 'Category added successfully!');
 
     }
 }

@@ -15,19 +15,15 @@
   <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
 
     @foreach ($allcategorie as $category)
-    <div class="relative group bg-white rounded-lg shadow-md hover:shadow-lg transition-transform hover:-translate-y-1 p-6">
+    
+    
 
-      <!-- Category Image -->
-      <img width="200"   src="{{ asset('storage/' . $category->imageCat) }}" alt="Category Image" class="object-cover w-full h-48 rounded-lg shadow-md">
+      <img src="{{ asset('storage/images/' . $category->imageCat) }}" alt="Category Image" class="object-cover w-50 h-48 rounded-lg shadow-md">
 
       <h3>{{ $category->nameCat }}</h3>
-      <!-- Category Info -->
-      <div class="text-center">
-       
-       
-      </div>
+     
  
-    </div>
+    
     @endforeach
 
   </div>
