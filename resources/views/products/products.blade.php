@@ -185,9 +185,13 @@
                                 <p class="name text-primary fs-1 ">{{ $product->username }}</p>
                                 @foreach ($allReview as $review)
                                     @if ($review->id_products == $product->id)
-                                        <p class=" text-white fs-2">{{ $review->rating }}</p>    
+                                        @for ($i = 0; $i < $review->rating; $i++)
+                                            <img style="width: 24px; height: 24px" src="{{ asset('assets/image/star.png') }}">
+                                        @endfor  
                                     @elseif ($review->id_products != $product->id)
-                                    <p class=" text-white fs-2">0</p>
+                                    <p class=" text-white fs-2">( 0 ) Rating</p>
+
+                                    
                                     @endif
                                   
                                 @endforeach
