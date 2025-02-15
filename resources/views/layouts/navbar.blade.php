@@ -18,7 +18,7 @@
               <li class="list me-3"><a class="text-white" href="/products">Products</a></li>
               <li class="list me-3"><a class="text-white" href="/categories">Categories</a></li>
               <li class="list me-3"><a class="text-white" href="/sellers">Sellers</a></li>
-              <li class="list me-3"><a class="text-white" href="/Orders">Orders</a></li>
+              <li class="list me-3"><a class="text-white" href="/orders">Orders</a></li>
 
               <!-- Cart Icon -->
               <li class="list position-relative">

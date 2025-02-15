@@ -10,6 +10,7 @@ use App\Http\Controllers\orderController;
 use App\Http\Controllers\orderItemController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\reviewController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\StripController;	
 use Illuminate\Support\Facades\Route;
@@ -68,3 +69,6 @@ Route::post("/items", [orderController::class, "checkOut"])->name('items');
 Route::get("/orders", [orderController::class, "index"]);
 Route::put("/orders/{id}", [orderController::class, "makePayment"])->name("complete");
 Route::get("/orderitems", [orderItemController::class, "store"]);
+
+
+Route::post("/orders/{id}", [reviewController::class, "addReview"])->name('orders');
