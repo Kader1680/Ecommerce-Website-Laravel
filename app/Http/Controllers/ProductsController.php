@@ -64,7 +64,8 @@ class ProductsController extends Controller
 
         $products = DB::table("products")->where("id", $id)->get();
         $homeProducts = DB::table("products")->limit(4)->get();
-        return view("products.singleProduct", ["products" => $products], compact("homeProducts"));
+        $allReview = Review::all();
+        return view("products.singleProduct", ["products" => $products], compact("homeProducts", "allReview"));
     
     }
 

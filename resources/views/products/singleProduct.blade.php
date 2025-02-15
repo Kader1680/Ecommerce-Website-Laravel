@@ -67,6 +67,22 @@
                             <p class=" text-white" style="width: 100%; font-size:18px" >{{$product->price }} $</p>
                             <p class=" text-white" style="width: 100%; font-size:18px" >{{$product->description }} </p>
                             <h4 class=" text-white" >Qauntiy    <span class="price-text-color font-bold " style="color: #09b83f"> (  {{$product->quantity }} ) </span>  </h4>
+
+                            @foreach ($allReview as $review)
+                            @if ($review->id_products == $product->id)
+                                @for ($i = 0; $i < $review->rating; $i++)
+                                    <img style="width: 24px; height: 24px" src="{{ asset('assets/image/star.png') }}">
+                                @endfor  
+                                <p class=" text-white bg-black-800 p-2" style="width: 100%; font-size:18px" >{{$review->review }} </p>
+
+                            @elseif ($review->id_products != $product->id)
+                            <p class=" text-white fs-2">( 0 ) Rating</p>
+                            <p class=" text-white bg-black-800 p-2" style="width: 100%; font-size:18px" >No Review Display !</p>
+
+                            
+                            @endif
+                          
+                        @endforeach
                         </div>
 
                     </div>
@@ -79,6 +95,8 @@
                             </div>
                         </form>
                         <button style="background-color: #09b83f;" class="Cart text-white fs-5 font-bold  border-0" type="submit"><span> <a href="/payement">Order Now</a> </span></button>
+
+
 
                     </div>
                 </div>
