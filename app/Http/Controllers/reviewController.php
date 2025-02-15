@@ -8,26 +8,31 @@ use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class reviewController extends Controller
-{
+class reviewController extends Controller{
 
 
     public function addReview(Request $request, $id){
-        $orderLists = Orderlist::find($id);
 
+        $orderLists = Orderlist::find($id);
         
         $auth = User::find(auth()->id());
+        
         Review::create([
-            
             "user_id" => $auth->id,
             "id_products" => $orderLists->id_product,
             "rating" => $request->rating,
             "review" => $request->review,
 
         ]);
-
+        
         return redirect('/products');
+    }
 
-         
+
+    public function displayReviewOnProduct(Request $request, $id){
+
+       
+
+        return view('/products');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -50,7 +51,13 @@ class ProductsController extends Controller
             $query->where('price', '<', 50);
         }
         $allProductQuery = $query->get();
-        return view("products.products", ["products" => $allProductQuery]);
+       
+        $allReview = Review::all();
+        
+
+
+
+        return view("products.products", ["products" => $allProductQuery], compact("allReview"));
     }
 
     public function catProduct($id){
