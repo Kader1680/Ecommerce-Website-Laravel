@@ -93,8 +93,16 @@
                             @if ($review->id_products == $product->id)
                                 @for ($i = 0; $i < $review->rating; $i++)
                                     <img style="width: 24px; height: 24px" src="{{ asset('assets/image/star.png') }}">
+
                                 @endfor  
-                                <p class=" text-white bg-black-800 p-2" style="width: 100%; font-size:18px" >{{$review->review }} </p>
+                                <div class="bg-black text-white">
+                                    @foreach ($users as $user)
+                                    <p>{{$user->name}}</p><br>
+                                        
+                                    @endforeach
+                                    <p class=" text-white bg-black-800 p-2" style="width: 100%; font-size:18px" >{{$review->review }} </p>
+                                </div>
+                                
 
                             @elseif ($review->id_products != $product->id)
                             <p class=" text-white fs-2">( 0 ) Rating</p>

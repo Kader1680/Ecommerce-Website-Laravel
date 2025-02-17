@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use App\Models\Review;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -53,9 +54,8 @@ class ProductsController extends Controller
         $allProductQuery = $query->get();
        
         $allReview = Review::all();
-        
 
-
+    
 
         return view("products.products", ["products" => $allProductQuery], compact("allReview"));
     }
@@ -65,7 +65,15 @@ class ProductsController extends Controller
         $products = DB::table("products")->where("id", $id)->get();
         $homeProducts = DB::table("products")->limit(4)->get();
         $allReview = Review::all();
-        return view("products.singleProduct", ["products" => $products], compact("homeProducts", "allReview"));
+
+        $reviewIdUser = Review::pluck('user_id');
+
+        $users = User::whereIn('id', $reviewIdUser)->get();
+        
+        
+
+
+        return view("products.singleProduct", ["products" => $products], compact("homeProducts", "allReview", "users"));
     
     }
 

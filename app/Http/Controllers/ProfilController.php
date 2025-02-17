@@ -37,6 +37,8 @@ class ProfilController extends Controller
                 'pics' => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
                  
             ]);
+
+            
     
             $filename = time() . '.' . $request->file('pics')->getClientOriginalExtension();
             $path = $request->file('pics')->storeAs('images', $filename, 'public');
