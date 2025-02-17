@@ -13,12 +13,12 @@
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
 
-            <form action="" method="POST" enctype="multipart/form-data">
+            <form action="/profil/edit-image/{{$idAuth}}" method="POST"  enctype="multipart/form-data">
                 @csrf
-
+                @method('PUT')
                 <div class="mb-3">
                     <label class="form-label">Select Image</label>
-                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="imageInput" accept="image/*" onchange="previewImage(event)">
+                    <input type="file" name="pics" class="form-control @error('image') is-invalid @enderror" id="imageInput" accept="image/*" onchange="previewImage(event)">
                     @error('image')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

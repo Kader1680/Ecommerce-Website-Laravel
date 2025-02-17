@@ -20,8 +20,31 @@ class ProfilController extends Controller
         }
 
 
-        public function updateImageProfile(){
-            return view("uploadImageProfil");
+
+        
+        public function editImageView(){
+            $idAuth = auth::User()->id;
+
+            return view('uploadImageProfil', compact('idAuth'));
+        }
+
+
+        public function updateImageProfile(Request $request, $id){
+            $user = User::find($id);
+
+            $validate = $request->validate([
+
+                'pics' => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
+                 
+            ]);
+    
+            $filename = time() . '.' . $request->file('pics')->getClientOriginalExtension();
+            $path = $request->file('pics')->storeAs('images', $filename, 'public');
+          
+            $user->pics = $path;
+
+            $user->save();
+            return redirect("/profil");
         }
 
         public function displayImageDefault(){

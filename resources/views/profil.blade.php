@@ -147,7 +147,7 @@
               
                 <img  width="100" height="100" 
                   
-                     src="{{ asset('storage/images/' .  $imageProfile) }}"
+                     src="{{ asset('storage/' .  $imageProfile) }}"
                      src="https://cdn-icons-png.flaticon.com/512/149/149071.png" 
                      alt="User Avatar">
             </div>
