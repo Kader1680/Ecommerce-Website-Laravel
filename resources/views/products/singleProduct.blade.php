@@ -62,7 +62,28 @@
                 </div>
                 <div class="col-md-5 info">
                     <div class="">
-                        <div class="price">
+                            <div class="price">
+
+
+
+                            
+
+
+                            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                             <h1 class="fw-bold" style="font-size: 40px; color:#09b83f"><span class="">{{$product->name }} </span> </h1>
                             <p class=" text-white" style="width: 100%; font-size:18px" >{{$product->price }} $</p>
                             <p class=" text-white" style="width: 100%; font-size:18px" >{{$product->description }} </p>

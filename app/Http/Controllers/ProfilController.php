@@ -18,4 +18,16 @@ class ProfilController extends Controller
             $products = DB::table("carts")->where("user_id", $id)->count();
             return view("profil", compact('userAuth', 'products'));
         }
+
+
+        public function updateImageProfile(){
+            return view("uploadImageProfil");
+        }
+
+        public function displayImageDefault(){
+
+            $idAuth = auth::User()->id;
+            $imageProfile = User::where('id', $idAuth)->value('pics');
+            return view("profil", compact("imageProfile")); 
+        }
 }

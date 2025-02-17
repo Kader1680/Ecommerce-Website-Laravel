@@ -31,7 +31,11 @@ Route::get("/product/{id}", [ProductsController::class, "catProduct"]);
 Route::get("/categories", [categoryController::class, "categories"]);
 Route::get("/categories/{cat_id}", [categoryController::class, "filterc"]);
 // Route::get("/categories/{cat_id}/{id}", [ProductsController::class, "catProduct"]);
+
 Route::get("/profil", [ProfilController::class, "Profil"])->name("profil");
+Route::get("/profil", [ProfilController::class, "displayImageDefault"])->name("profil");
+Route::get("/profil/edit-image", [ProfilController::class, "updateImageProfile"]);
+
 Route::get("/login", [AuthController::class, "loginPage"])->name("login");
 Route::get("/register", [AuthController::class, "registerPage"])->name("register");
 Route::post("/register", [AuthController::class, "postRegister"])->name("register");
@@ -72,3 +76,4 @@ Route::get("/orderitems", [orderItemController::class, "store"]);
 
 
 Route::post("/orders/{id}", [reviewController::class, "addReview"])->name('orders');
+

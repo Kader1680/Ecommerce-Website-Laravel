@@ -141,12 +141,18 @@
     <div class="row">
         <!-- Sidebar Section -->
         <div class="col-md-3 sidebar">
+
+          
             <div class="text-center">
-                <img width="100" height="100" 
+              
+                <img  width="100" height="100" 
+                  
+                     src="{{ asset('storage/images/' .  $imageProfile) }}"
                      src="https://cdn-icons-png.flaticon.com/512/149/149071.png" 
                      alt="User Avatar">
             </div>
             <ul>
+                <li><a href="/profil/edit-image"><i class="fa-solid fa-image"></i> Update Image Profil  </a></li>
                 <li><a href="#">My Wallet</a></li>
                 <li><a href="#">My Rewards</a></li>
                 <li><a href="#">My Orders</a></li>
@@ -158,12 +164,16 @@
         </div>
 
         <!-- Profile Info Section -->
-        <div class="col-md-9">
+       
+
+
+
+
+
+        {{-- <div class="col-md-9">
             <div class="profile">
                 <div class="profile-header">
-                    {{-- <img width="100" height="100" 
-                         src="https://w7.pngwing.com/pngs/621/196/png-transparent-e-commerce-logo-logo-e-commerce-electronic-business-ecommerce-angle-text-service.png" 
-                         alt="Company Logo"> --}}
+                   
                     <div>
                         <h2>Your Profile</h2>
                         <p>Update your personal details and contact preferences here.</p>
@@ -203,7 +213,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+
+
+
+
     </div>
 </div>
 

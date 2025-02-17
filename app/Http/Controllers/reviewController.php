@@ -35,4 +35,17 @@ class reviewController extends Controller{
 
         return view('/products');
     }
+    
+
+
+    
+
+
+
+    public function displayImageUser(){
+
+        $review = Review::all();
+
+
+    }
 }
