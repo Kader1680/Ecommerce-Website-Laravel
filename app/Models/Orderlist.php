@@ -13,5 +13,6 @@ class Orderlist extends Model
         'id_product', 
         'quantity',
         'price',
+        'id_user'
     ];
 }

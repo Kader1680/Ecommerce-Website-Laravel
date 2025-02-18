@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\Orderlist;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class orderController extends Controller
 {
@@ -30,12 +31,15 @@ class orderController extends Controller
 
 
         foreach ($cartItems as $cartItem) {
+            $auth = User::find(auth()->id());
         
             Orderlist::create([
                 'id_order' => $orders->id,
                 'id_product' => $cartItem->id_product,
                 'quantity' => $cartItem->quantity,
-                'price' => $cartItem->price
+                'price' => $cartItem->price,
+                'id_user' => $auth->id
+                
             ]
             );
         }
@@ -45,7 +49,11 @@ class orderController extends Controller
     }
 
     public function index(){
-        $orderLists = Orderlist::all();
+        
+        $id_auth = auth()->id(); 
+
+        $orderLists = Orderlist::where('id_user', $id_auth)->get(); 
+
         return view('orders', compact('orderLists'));
     }
 
