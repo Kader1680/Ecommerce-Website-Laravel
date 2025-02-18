@@ -70,6 +70,17 @@ class orderController extends Controller
 
 
 
+    public function orderCounter(){
+
+        $counterOrders = Orderlist::all()->count();
+   
+        return view("layouts.navbar", $counterOrders);
+
+    }
+
+
+
+
 
     
 

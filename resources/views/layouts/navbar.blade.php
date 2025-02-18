@@ -1,3 +1,4 @@
+
 <nav class="navbar position-fixed w-100 mb-5 pt-4 pb-4">
   <div class="container d-flex justify-content-between align-items-center">
       <div class="logo">
@@ -18,7 +19,21 @@
               <li class="list me-3"><a class="text-white" href="/products">Products</a></li>
               <li class="list me-3"><a class="text-white" href="/categories">Categories</a></li>
               <li class="list me-3"><a class="text-white" href="/sellers">Sellers</a></li>
-              <li class="list me-3"><a class="text-white" href="/orders">Orders</a></li>
+              <li class="list me-3"><a class="text-white" href="/orders">
+                Orders
+                
+                <span style="background-color: #09B83" class="  position-absolute top-0 start-100 translate-middle badge rounded-pill ">
+                  <?php
+            
+                  $user = Auth()->user();
+                  $count = $user ? DB::table('orderlists')->where('id_user', $user->id)->count() : 0;
+                  echo $count;
+                  ?>
+              </span>
+                
+              
+              
+              </a></li>
 
               <!-- Cart Icon -->
               <li class="list position-relative">

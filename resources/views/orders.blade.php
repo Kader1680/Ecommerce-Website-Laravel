@@ -2,7 +2,9 @@
 @section("content")
 
 <div class="container text-white py-5" style="margin-top: 10rem;">
-    <h2 class="mb-4 text-center fw-bold">Orders List</h2>
+    <h2 class="mb-4 text-center fw-bold">Orders List   dd</h2>
+
+
 
     <div class="table-responsive">
         <table class="table table-dark table-striped text-white fs-4">
@@ -17,9 +19,20 @@
                 </tr>
             </thead>
             <tbody>
+
+
                 @foreach ($orderLists as $order)
+
+
+               
+
+                  
+
                     <tr class="align-middle">
-                        <td>{{ $order->id }}</td>
+
+                         
+
+                        <td>{{ $order->id }}</td>  ddd
                         <td><strong>{{ $order->id_order }}</strong></td>
                         <td><strong>{{ $order->id_product }}</strong></td>
                         <td>${{ number_format($order->total_price, 2) }}</td>

@@ -15,4 +15,12 @@ class Review extends Model
         'rating',
         'review'
     ];
+
+
+
+    public function user()
+    {
+    return $this->belongsTo(User::class);
+    }
+
 }

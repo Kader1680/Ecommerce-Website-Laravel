@@ -80,7 +80,7 @@
        <form     action="{{ route("items") }}" method="POST">
          @csrf
 
-          <input class=" text-black  text-decoration-none rounded bg-black" type="submit">
+          <button type="submit"  class=" border-0 bg-transparent text-black  text-decoration-none rounded bg-black">Confrim Order</button>
 
         </form>
 
@@ -103,7 +103,13 @@
           
         </div>
         <div class="text-center   font col-3"  >
-          <button style="border: 2px solid #09B83F; background-color:#09B83F" class=" fs-5 px-4 py-2 text-white  outline-none">Apply</button>
+          
+          <button style="border: 2px solid #09B83F; background-color:#09B83F" class=" fs-5 px-4 py-2 text-white  outline-none">
+
+
+            Applay The Copons
+
+          </button>
         </div>
       </div>
      

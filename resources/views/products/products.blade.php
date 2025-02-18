@@ -137,6 +137,9 @@
         </div>
     </div>
 
+
+
+
     <!-- Filter Section -->
     <div class="row mb-5">
         <div class="col-md-3">
@@ -171,6 +174,83 @@
                 </div>
             </form>
         </div>
+
+
+        <form>
+            <!-- Category Filter -->
+            <div class="mb-3">
+                <label class="form-label">Category</label>
+                <select class="form-select">
+                    <option value="">All</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="fashion">Fashion</option>
+                    <option value="home">Home & Living</option>
+                    <option value="beauty">Beauty</option>
+                    <option value="sports">Sports</option>
+                </select>
+            </div>
+
+            <!-- Brand Filter -->
+            <div class="mb-3">
+                <label class="form-label">Brand</label>
+                <select class="form-select">
+                    <option value="">All</option>
+                    <option value="apple">Apple</option>
+                    <option value="samsung">Samsung</option>
+                    <option value="nike">Nike</option>
+                    <option value="adidas">Adidas</option>
+                </select>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="mb-3">
+                <label class="form-label">Price Range</label>
+                <select class="form-select">
+                    <option value="">All</option>
+                    <option value="0-50">$0 - $50</option>
+                    <option value="50-100">$50 - $100</option>
+                    <option value="100-500">$100 - $500</option>
+                    <option value="500+">$500+</option>
+                </select>
+            </div>
+
+            <!-- Rating Filter -->
+            <div class="mb-3">
+                <label class="form-label">Rating</label>
+                <select class="form-select">
+                    <option value="">All</option>
+                    <option value="5">5 Stars</option>
+                    <option value="4">4 Stars & Up</option>
+                    <option value="3">3 Stars & Up</option>
+                    <option value="2">2 Stars & Up</option>
+                </select>
+            </div>
+
+            <!-- Availability Filter -->
+            <div class="mb-3">
+                <label class="form-label">Availability</label>
+                <select class="form-select">
+                    <option value="">All</option>
+                    <option value="in-stock">In Stock</option>
+                    <option value="out-of-stock">Out of Stock</option>
+                </select>
+            </div>
+
+            <!-- Sort By Filter -->
+            <div class="mb-3">
+                <label class="form-label">Sort By</label>
+                <select class="form-select">
+                    <option value="popularity">Popularity</option>
+                    <option value="newest">Newest First</option>
+                    <option value="low-high">Price: Low to High</option>
+                    <option value="high-low">Price: High to Low</option>
+                </select>
+            </div>
+
+            <!-- Apply Button -->
+            <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+        </form>
+    </div>
 
         <!-- Products Grid -->
         <div class="col-md-9">

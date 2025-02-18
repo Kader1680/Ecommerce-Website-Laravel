@@ -113,24 +113,25 @@
 
 
 
-    <div class=" ps-3 pt-3 pb-2 bg-white rounded-lg w-50   ">
+    <div class="ps-3 pt-3 pb-2 bg-white rounded-lg w-50">
         @foreach ($users as $user)
-            <div class="d-flex align-items-center mb-3">
-                <!-- User Profile Image -->
-                <img src="{{ asset('storage/' . $user->pics) }}" alt="Profile Picture" class="rounded-circle" width="40" height="40">
-    
-                <!-- User Name and Comment -->
-                <div class="ms-3">
-                    <p style="font-size: 15px; color:#09b83f" class="mb-0 text-teal-400"><strong>{{ $user->name }}</strong></p>
+            @foreach ($allReview as $review)
+                <div class="d-flex align-items-center mb-3">
+                    <!-- User Profile Image -->
+                    <img src="{{ asset('storage/' . $user->pics) }}" alt="Profile Picture" class="rounded-circle" width="40" height="40">
+                    
+                    <!-- User Name and Comment -->
+                    <div class="ms-3">
+                        <p class="mb-0 text-teal-400" style="font-size: 15px; color:#09b83f">
+                            <strong>{{ $user->name }}</strong>
+                        </p>
+                        <p class="text-dark mt-1" style="font-size: 13px;">{{ $review->review }}</p>
+                    </div>
                 </div>
-            </div>
+            @endforeach
         @endforeach
-    
-        <!-- Review Content -->
-        <div class="comment-box  rounded">
-            <p class="text-dark" style="font-size: 13px;">{{ $review->review }}</p>
-        </div>
     </div>
+    
 
 
     <h1 class=" fw-bolder mt-md-5 mt-mb-5 text-white">Recoumended Items</h1>
