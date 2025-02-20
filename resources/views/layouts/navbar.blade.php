@@ -19,6 +19,9 @@
               <li class="list me-3"><a class="text-white" href="/products">Products</a></li>
               <li class="list me-3"><a class="text-white" href="/categories">Categories</a></li>
               <li class="list me-3"><a class="text-white" href="/sellers">Sellers</a></li>
+              
+
+              @auth
               <li class="list me-3"><a class="text-white" href="/orders">
                 Orders
                 
@@ -34,7 +37,9 @@
               
               
               </a></li>
-
+              @endauth
+          
+              @auth
               <!-- Cart Icon -->
               <li class="list position-relative">
                   <a class="text-white" href="/items">
@@ -42,15 +47,14 @@
                       Carts
                       <span class=" position-absolute top-0 start-100 translate-middle badge rounded-pill ">
                           <?php
-                          use Illuminate\Support\Facades\DB;
-                          use Illuminate\Support\Facades\Auth;
-                          $user = Auth()->user();
+                        
                           $count = $user ? DB::table('carts')->where('user_id', $user->id)->count() : 0;
                           echo $count;
                           ?>
                       </span>
                   </a>
               </li>
+              @endauth
 
               @php
               $user = Auth::user();
@@ -59,13 +63,19 @@
                   <li class="list me-3"><a class="text-white" href="/profil">{{ $user->name }}</a></li>
                   <li class="list"><a class="text-white" href="/logout">Logout</a></li>
                    
+                  @if (Auth::user()->name == 'admin')
                   <li class="list me-3"><a class="text-white" href="/dashboard">dashboard</a></li>
-                   
+                      
+                  @endif
                    
               @else
 
                   <li class="list"><a class="text-white" href="/login">Login</a></li>
               @endif
+
+               
+                
+                  
 
                
              

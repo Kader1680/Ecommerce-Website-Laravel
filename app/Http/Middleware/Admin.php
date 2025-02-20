@@ -17,7 +17,7 @@ class Admin
     public function handle(Request $request, Closure $next): Response
     {
 
-        if (Auth::user()->name == "admin") {
+        if (Auth::user()->email == "admin@gmail.com") {
             return $next($request);
         }
         abort(401);

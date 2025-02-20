@@ -23,7 +23,7 @@ class CartController extends Controller
         $productsId = Products::find($id);
         $id = Auth::user()->id;
 
-        $product = DB::table("carts")->insert(
+        $carts = DB::table("carts")->insert(
             [
                 "name" =>  $productsId->name,
                 "price" =>  $productsId->price,

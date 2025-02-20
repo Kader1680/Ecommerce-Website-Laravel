@@ -18,7 +18,7 @@
 
     /* Sidebar Styles */
     .sidebar {
-        background-color: #06b671;
+        background-color: #09b83e;
         padding: 2rem;
         border-radius: 15px;
         color: white;
@@ -120,7 +120,7 @@
     }
 
     .gender input:checked + label {
-        background-color: #06b671;
+        background-color: #09b83e;
         color: white;
     }
 
@@ -154,7 +154,7 @@
             <ul>
                 <li><a href="/profil/edit-image"><i class="fa-solid fa-image"></i> Update Image Profil  </a></li>
                 <li><a href="#">My Wallet</a></li>
-                <li><a href="#">My Rewards</a></li>
+                <li><a href="#">My Savedc</a></li>
                 <li><a href="#">My Orders</a></li>
                 <li><a href="#">Personal Info</a></li>
                 <li><a href="#">Payment Methods</a></li>

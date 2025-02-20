@@ -1,136 +1,91 @@
 @extends("layouts.master")
 
 @section("content")
-<div style="margin-top: 15rem" class="container mx-auto p-6 mt-20 row bg-white">
+<div style="margin-top: 12rem" class="container mx-auto p-5 mt-20 bg-white rounded-lg shadow-lg">
 
-  {{-- @if (\Session::has('success'))
-    <div class="success-msg">
-        <ul>
-            <li>{!! \Session::get('success') !!}</li>
-        </ul>
-    </div>
-  @endif --}}
+  <div class="row">
+    <!-- Left Column: Cart Items -->
+    <div class="col-md-8 border-end pe-4">
+      <h2 class="mb-4 fw-bold text-dark">Your Cart</h2>
 
-
-
-  <div  class=" col-8 border-bottom  ">
-    @foreach ($carts as $cart)
-
-
-    <div class=" rounded-lg shadow-md mt-2  p-4  d-flex  ">
-
-
-          <img width="100"  src="{{ asset('assets/image/' . $cart->image) }}"  alt="{{ $cart->name }}" class="     object-cover mb-4">
-          <div class=" ms-4">
-            <h3 class="text-lg font-bold">{{ $cart->name }}</h3>
-            <p style="width: 50%">Et mollitia excepturi dolorem est recusandae ut molestiae neque assumenda.</p>
-          </div>
-      
-
-          <div  class="flex justify-between text">
-            <form method="POST" action="{{ url('/items/' . $cart->id) }}">
-              @csrf
-              @method("DELETE")
-              <button style="color: #09B83F" class="border-0 bg-transparent">
-                Remove
-              </button>
-            </form>
-    
-            <form method="POST" action="{{ url('/items/' . $cart->id) }}">
-              @csrf
-              @method("DELETE")
-              <button style="color: #09B83F" class="border-0 bg-transparent mt-2">
-                Save from Later
-              </button>
-            </form>
-          </div>
-
-          
-          <p  class="font-semibold"><span class=" fw-bolder fs-4" style="color: #09B83F">${{ $cart->price }}</span> </p> 
- 
-
-     
-
-
-
-    </div>
-
-
-
-    @endforeach
-    <hr>
-   </div>
-
-
-
-  <div class="col-4 ">
-    <?php
-      $total = 0;
-      foreach ($carts as $cart) {
-        $total += $cart->price;
-      }
-    ?>*
-
-    
-    <h2 class="text-xl font-bold">Total: ${{ $total }}</h2>
-    <div class="text-center fs-4 px-4 py-2 font" style="width:100%; background-color: 09B83F;">
-
-
-
-       <form     action="{{ route("items") }}" method="POST">
-         @csrf
-
-          <button type="submit"  class=" border-0 bg-transparent text-black  text-decoration-none rounded bg-black">Confrim Order</button>
-
-        </form>
-
-
-    </div>
-    
-
-    <hr>
-    <h3 class=" fw-bold">Promotion</h3>
-    <div class=" border border-1 mt-4 mb-4 p-3">
-      <span class=" fw-bold">ACCAGE0923 </span>is applied <br>
-      Udemy coupon
-    </div>
-
-    <form action="" method="post" >
-      <div class="row  ">
-        <div class="mb-3 col-9">
-        
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          
-        </div>
-        <div class="text-center   font col-3"  >
-          
-          <button style="border: 2px solid #09B83F; background-color:#09B83F" class=" fs-5 px-4 py-2 text-white  outline-none">
-
-
-            Applay The Copons
-
-          </button>
-        </div>
+      @if ($carts->isEmpty())
+      <div class="text-center py-5">
+        <img src="{{ asset('assets/image/empty-cart.png') }}" width="150" class="mb-3" alt="Empty Cart">
+        <h4 class="text-muted">Your cart is empty!</h4>
+        <p class="text-muted">Looks like you haven't added anything to your cart yet.</p>
+        <a href="{{ url('/') }}" class="btn btn-primary mt-3">Continue Shopping</a>
       </div>
-     
+      @else
       
-    </form>
+      @foreach ($carts as $cart)
+        <div class="d-flex align-items-center justify-content-between mb-4 p-3 rounded-lg shadow-sm bg-light">
+          <!-- Product Image -->
+          <img width="90" src="{{ asset('assets/image/' . $cart->image) }}" alt="{{ $cart->name }}" class="rounded-lg object-cover me-3 border">
+
+          <!-- Product Details -->
+          <div class="flex-grow-1">
+            <h4 class="fw-bold text-dark">{{ $cart->name }}</h4>
+            <p class="text-muted small mb-2">{{ $cart->description ?? 'No description available.' }}</p>
+          </div>
+
+          <!-- Price & Actions -->
+          <div class="text-end d-flex flex-column align-items-end">
+            <p class="fw-bold text-success fs-5 m-0">${{ $cart->price }}</p>
+
+            <div class="d-flex gap-2 mt-2">
+              <form method="POST" action="{{ url('/items/' . $cart->id) }}">
+                @csrf
+                @method("DELETE")
+                <button class="btn btn-outline-danger px-3 py-1 rounded-lg fw-bold">🗑 Remove</button>
+              </form>
+
+              <form method="POST" action="{{ url('/items/' . $cart->id) }}">
+                @csrf
+                @method("DELETE")
+                <button class="btn btn-outline-primary px-3 py-1 rounded-lg fw-bold">📥 Save for Later</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      @endforeach
+
+    <!-- Right Column: Order Summary -->
+    <div class="col-md-4 ps-4">
+      <h3 class="fw-bold mb-4 text-dark">Order Summary</h3>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Subtotal:</span>
+        <span style="color: #09b83e" class="fw-bold fs-5">$88</span>
+      </div>
+
+      <form action="{{ route('items') }}" method="POST">
+        @csrf
+        <button style="background-color:  #09b83e" type="submit" class="w-100 btn text-white fw-bold fs-5 py-2 rounded-lg">
+          Confirm Order
+        </button>
+      </form>
+
+      <hr class="my-4">
+
+      <h4 class="fw-bold mb-3 text-dark">Promotion</h4>
+      <div class="border rounded-lg p-3 bg-light">
+        <span class="fw-bold">ACCAGE0923</span> is applied <br>
+        <small class="text-muted">Udemy coupon</small>
+      </div>
+
+      <form action="" method="post" class="mt-3">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter coupon code">
+          <button style="background-color: #09b83e" type="submit" class="btn text-white fw-bold">Apply</button>
+        </div>
+      </form>
+    </div>
+      @endif
+
+    </div>
+
   </div>
-
-
-
-
-
 </div>
-@endsection
 
-<script>
-  document.querySelectorAll('form').forEach((form) => {
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const card = this.closest('.bg-white');
-      card.classList.add('opacity-50', 'transition', 'duration-300');
-      setTimeout(() => card.remove(), 300); // Remove item after animation
-    });
-  });
-</script>
+@endsection  
