@@ -171,7 +171,7 @@
               transition: all 0.3s ease; /* Smooth transitions */
             }
           
-            .page-link:hover {
+            li a .page-link:hover {
               background-color: #09b83e; /* Green background on hover */
               color: white; /* White text on hover */
               border-color: #09b83e; /* Green border on hover */
@@ -189,6 +189,8 @@
               color: white; /* White text for active button */
             }
           
+
+
 /* Filter Section Styling */
 .filter-section {
     background-color: #f8f9fa;
@@ -406,25 +408,25 @@
             <ul class="pagination justify-content-center">
               <!-- Previous Button -->
               <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1" aria-disabled="true" style="color: #09b83e; border-color: #09b83e;">
+                <a class="page-link" href="#" tabindex="-1" aria-disabled="true" style="padding: 1rem 2rem; color: #09b83e; border-color: #09b83e;">
                   Previous
                 </a>
               </li>
           
               <!-- Page Numbers -->
               <li class="page-item">
-                <a class="page-link" href="#" style="color: #09b83e; border-color: #09b83e;">1</a>
+                <a class="page-link" href="#" style="padding: 1rem 2rem; color: #09b83e; border-color: #09b83e;">1</a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="#" style="color: #09b83e; border-color: #09b83e;">2</a>
+                <a class="page-link" href="#" style="padding: 1rem 2rem;  color: #09b83e; border-color: #09b83e;">2</a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="#" style="color: #09b83e; border-color: #09b83e;">3</a>
+                <a class="page-link" href="#" style="padding: 1rem 2rem; color: #09b83e; border-color: #09b83e;">3</a>
               </li>
           
               <!-- Next Button -->
               <li class="page-item">
-                <a class="page-link" href="#" style="color: #09b83e; border-color: #09b83e;">Next</a>
+                <a class="page-link" href="#" style="padding: 1rem 2rem; color: #09b83e; border-color: #09b83e;">Next</a>
               </li>
             </ul>
           </nav>

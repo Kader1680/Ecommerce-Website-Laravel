@@ -1,56 +1,29 @@
 @extends("layouts.master")
+
 @section("content")
-<main>
-    <section class="section-login">
-        <div class="section-main">
-            <div class="section-login-1">
-                <div class="section-login-1-main">
+<main class="d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow-lg p-4 rounded-lg" style="max-width: 400px; width: 100%;">
+        <h2 class="text-center mb-3 fw-bold">Welcome To ZED </h2>
 
-                    <h1 class="section-login-1-title">Gradie</h1>
-                    <p class="section-login-1-text">Beautiful gradients in seconds.</p>
-                    <div class="section-login-1-img">
-                        <img src="https://rvs-gradie-signup-page.vercel.app/Assets/iPhone-Mockup.png" alt="">
-                    </div>
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
 
-                </div>
+            <div class="mb-3">
+                <label for="email" class="form-label fw-semibold">Email</label>
+                <input name="email" type="email" id="email" class="form-control" placeholder="Enter Your Email" required>
             </div>
-            <div class="section-login-2">
-                <div class="section-login-2-main">
 
-                    <h1 class="section-login-2-title">Login</h1>
-                    <form method="POST" action=" {{ route("login") }} " class="section-login-2-form">
-                        @csrf
-                        <div class="login-form-1">
-                            <label for="input-email">Email</label>
-                            <input name="email" type="text" id="input-email" placeholder="john@gmail.com" required>
-                        </div>
-                        <div class="login-form-3">
-                            <label for="input-password">Password</label>
-                            <input name="password" type="password" id="input-password" placeholder="At least 4 characters" required>
-                        </div>
-                        <div class="login-form-submit-btn">
-                            <button type="submit">
-                                Login
-                            </button>
-                        </div>
-
-                        {{-- <div class="login-form-5">
-                            <p>  <input type="submit" name="submit" /> </p>
-                        </div> --}}
-                        <div class="  login-form-submit-btn">
-                            <button class=" bg-white" type="submit">
-                                <a href="/register">Register Now</a>
-                            </button>
-                        </div>
-
-                    </form>
-
-                </div>
+            <div class="mb-3">
+                <label for="password" class="form-label fw-semibold">Password</label>
+                <input name="password" type="password" id="password" class="form-control" placeholder="Enter Password" required>
             </div>
+
+            <button style="background-color: #09b83e; " type="submit" class="btn text-white fs-4 w-100 fw-bold">Login</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <small>Don't have an account? <a href="{{ route('register') }}" class="text-primary fw-semibold">Register</a></small>
         </div>
-    </section>
+    </div>
 </main>
-
 @endsection
-
-
