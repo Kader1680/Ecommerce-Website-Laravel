@@ -16,46 +16,34 @@ class ProductsController extends Controller
 
     public function allProduct(Request $request){
 
-        $products = DB::table("sell_prod_view")->get();
+        $products = DB::table("products")->get();
 
         $query = Products::query();
-
-        // $varFilter = "under_price";
-        // switch ($request->input($varFilte)) {
-        //     case 'value':
-        //         # code...
-        //         break;
-            
-        //     default:
-        //         # code...
-        //         break;
-        // }
-        
         if ($request->input("under_price")) {
-            
+
             $query->where('price', '<', 50);
         }
         if ($request->input('over_price')) {
-            
+
             $query->where('price', '>', 50);
         }
         if ($request->input('good_rating')) {
-            
+
             $query->where('price', '<', 50);
         }
         if ($request->input('bad_rating')) {
-            
+
             $query->where('price', '<', 50);
         }
         if ($request->input('popular_selling')) {
-            
+
             $query->where('price', '<', 50);
         }
         $allProductQuery = $query->get();
-       
+
         $allReview = Review::all();
 
-    
+
 
         return view("products.products", ["products" => $allProductQuery], compact("allReview"));
     }
@@ -69,12 +57,12 @@ class ProductsController extends Controller
         $reviewIdUser = Review::pluck('user_id');
 
         $users = User::whereIn('id', $reviewIdUser)->get();
-        
-        
+
+
 
 
         return view("products.singleProduct", ["products" => $products], compact("homeProducts", "allReview", "users"));
-    
+
     }
 
 
@@ -84,8 +72,8 @@ class ProductsController extends Controller
 
         if (!$query) {
             return redirect()->back()->with("message", "Please enter a search term.");
-        }       
-        
+        }
+
         $products = Products::where(function ($q) use ($query) {
             $q->where('name', 'LIKE', "%{$query}%")
               ->orWhere('description', 'LIKE', "%{$query}%");
@@ -98,11 +86,11 @@ class ProductsController extends Controller
             return view('products.products', compact('products'));
         }
 
-        
+
     }
 
     // public function filterPrice(Request $request){
-        
+
 
     //     return view("products.products", ["allProductQuery" => $allProductQuery]);
     // }

@@ -1,4 +1,5 @@
 <?php
+use App\Http\Controllers\StripeCheckoutController;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
@@ -12,7 +13,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\reviewController;
 use App\Http\Controllers\SellerController;
-use App\Http\Controllers\StripController;	
+use App\Http\Controllers\StripController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -58,16 +59,15 @@ Route::get("/sellers", [SellerController::class, "getSellers"]);
 
 // payment with the payapl
 
-// Route::get("/payement", [StripController::class, "payement"]); 
+// Route::get("/payement", [StripController::class, "payement"]);
 // Route::get("/payement           /cancel", [StripController::class, "cancel"]);
 // Route::get("/payament/success", [StripController::class, "success"]);
 
 
-Route::get('/payement', [StripController::class, "index"]);
-Route::post('/charge', [StripController::class, "charge"]);
-Route::get('/success', [StripController::class, "success"]);
-Route::get('/error', [StripController::class, "error"]);
 
+Route::get('/checkout', [StripeCheckoutController::class, 'createCheckoutSession'])->name('stripe.checkout');
+Route::get('/success', [StripeCheckoutController::class, 'success'])->name('stripe.success');
+Route::get('/cancel', [StripeCheckoutController::class, 'cancel'])->name('stripe.cancel');
 
 
 

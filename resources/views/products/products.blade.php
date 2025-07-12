@@ -63,7 +63,7 @@
     height: 32px;
     background-color: #e0e0e0;
     clip-path: polygon(
-        50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 
+        50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
         50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%
     );
     transition: background-color 0.3s;
@@ -162,7 +162,7 @@
 }
 
 
- 
+
             /* Custom Pagination Styles */
             .page-link {
               color: #09b83e; /* Green text color */
@@ -170,25 +170,25 @@
               margin: 0 4px; /* Spacing between buttons */
               transition: all 0.3s ease; /* Smooth transitions */
             }
-          
+
             li a .page-link:hover {
               background-color: #09b83e; /* Green background on hover */
               color: white; /* White text on hover */
               border-color: #09b83e; /* Green border on hover */
             }
-          
+
             .page-item.disabled .page-link {
               color: #6c757d; /* Gray text for disabled button */
               border-color: #e0e0e0; /* Light gray border for disabled button */
               background-color: #f8f9fa; /* Light gray background for disabled button */
             }
-          
+
             .page-item.active .page-link {
               background-color: #09b83e; /* Green background for active button */
               border-color: #09b83e; /* Green border for active button */
               color: white; /* White text for active button */
             }
-          
+
 
 
 /* Filter Section Styling */
@@ -382,7 +382,7 @@
                                     @if ($review->id_products == $product->id)
                                         @for ($i = 0; $i < $review->rating; $i++)
                                             <img style="width: 24px; height: 24px" src="{{ asset('assets/image/star.png') }}">
-                                        @endfor  
+                                        @endfor
                                     @elseif ($review->id_products != $product->id)
                                         <p class="text-muted">( 0 ) Rating</p>
                                     @endif
@@ -397,6 +397,11 @@
                                     </form>
                                     <a href="/singleProduct/{{ $product->id }}" class="btn btn-details">View Details</a>
                                 </div>
+
+                                    <a href="{{ route('stripe.checkout') }}">
+                                        <button>Pay with Stripe</button>
+                                    </a>
+
                             </div>
                         </div>
                     </div>
@@ -412,7 +417,7 @@
                   Previous
                 </a>
               </li>
-          
+
               <!-- Page Numbers -->
               <li class="page-item">
                 <a class="page-link" href="#" style="padding: 1rem 2rem; color: #09b83e; border-color: #09b83e;">1</a>
@@ -423,7 +428,7 @@
               <li class="page-item">
                 <a class="page-link" href="#" style="padding: 1rem 2rem; color: #09b83e; border-color: #09b83e;">3</a>
               </li>
-          
+
               <!-- Next Button -->
               <li class="page-item">
                 <a class="page-link" href="#" style="padding: 1rem 2rem; color: #09b83e; border-color: #09b83e;">Next</a>
