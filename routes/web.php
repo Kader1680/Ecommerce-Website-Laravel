@@ -78,6 +78,9 @@ Route::get("/orders", [orderController::class, "index"]);
 Route::put("/orders/{id}", [orderController::class, "makePayment"])->name("complete");
 Route::get("/orderitems", [orderItemController::class, "store"]);
 
+Route::delete('/orders/{id}', [orderItemController::class, 'delete'])->name('orders.destroy');
+
+
 
 
 

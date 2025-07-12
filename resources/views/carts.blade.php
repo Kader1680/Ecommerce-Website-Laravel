@@ -16,7 +16,7 @@
         <a href="{{ url('/') }}" class="btn btn-primary mt-3">Continue Shopping</a>
       </div>
       @else
-      
+
       @foreach ($carts as $cart)
         <div class="d-flex align-items-center justify-content-between mb-4 p-3 rounded-lg shadow-sm bg-light">
           <!-- Product Image -->
@@ -48,15 +48,13 @@
           </div>
 
         </div>
-      @endforeach
 
-    <!-- Right Column: Order Summary -->
-    <div class="col-md-4 ps-4">
+ <div class="col-md-4 ps-4">
       <h3 class="fw-bold mb-4 text-dark">Order Summary</h3>
 
       <div class="d-flex justify-content-between align-items-center mb-3">
         <span class="text-muted">Subtotal:</span>
-        <span style="color: #09b83e" class="fw-bold fs-5">$88</span>
+        <span style="color: #09b83e" class="fw-bold fs-5">{{ $cart->price }}</span>
       </div>
 
       <form action="{{ route('items') }}" method="POST">
@@ -81,6 +79,10 @@
         </div>
       </form>
     </div>
+      @endforeach
+
+
+
       @endif
 
     </div>
@@ -88,4 +90,4 @@
   </div>
 </div>
 
-@endsection  
+@endsection

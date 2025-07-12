@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
+use Illuminate\Support\Facades\DB;
 
 class StripeCheckoutController extends Controller
 {
@@ -12,17 +13,33 @@ class StripeCheckoutController extends Controller
     {
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
-        $session = Session::create([
-            'line_items' => [[
+
+         
+        $result = DB::table('orderlists')
+            ->join('products', 'orderlists.id_product', "=", "products.id") 
+            ->join('users', 'orderlists.id_user', "=", "users.id") 
+            ->select('products.name', 'orderlists.price', 'products.quantity')
+            ->get();
+
+          // Build line items for Stripe
+        $lineItems = [];
+
+        foreach ($result as $item) {
+            $lineItems[] = [
                 'price_data' => [
                     'currency' => 'usd',
                     'product_data' => [
-                        'name' => 'Test Product',
+                        'name' => $item->name,
                     ],
-                    'unit_amount' => 2000,
+                    'unit_amount' => intval($item->price * 100), // Stripe uses cents
                 ],
-                'quantity' => 1,
-            ]],
+                'quantity' => $item->quantity ?? 1,
+            ];
+        }
+
+        // Create Stripe Checkout session
+        $session = Session::create([
+            'line_items' => $lineItems,
             'mode' => 'payment',
             'success_url' => route('stripe.success'),
             'cancel_url' => route('stripe.cancel'),
@@ -33,11 +50,11 @@ class StripeCheckoutController extends Controller
 
     public function success()
     {
-        return 'Payment successful ✅';
+        return view('stripe.success');
     }
 
     public function cancel()
     {
-        return 'Payment cancelled ❌';
+        return view('stripe.cancel');
     }
 }

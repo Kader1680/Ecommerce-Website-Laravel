@@ -398,9 +398,6 @@
                                     <a href="/singleProduct/{{ $product->id }}" class="btn btn-details">View Details</a>
                                 </div>
 
-                                    <a href="{{ route('stripe.checkout') }}">
-                                        <button>Pay with Stripe</button>
-                                    </a>
 
                             </div>
                         </div>
