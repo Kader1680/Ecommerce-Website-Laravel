@@ -55,15 +55,7 @@ Route::post("/dashboard", [DashboardController::class, "addCategory"])->name("ca
 
 Route::get("/sellers", [SellerController::class, "getSellers"]);
 
-
-
-// payment with the payapl
-
-// Route::get("/payement", [StripController::class, "payement"]);
-// Route::get("/payement           /cancel", [StripController::class, "cancel"]);
-// Route::get("/payament/success", [StripController::class, "success"]);
-
-
+ 
 
 Route::get('/checkout', [StripeCheckoutController::class, 'createCheckoutSession'])->name('stripe.checkout');
 Route::get('/success', [StripeCheckoutController::class, 'success'])->name('stripe.success');

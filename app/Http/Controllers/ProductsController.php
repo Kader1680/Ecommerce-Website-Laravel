@@ -16,7 +16,9 @@ class ProductsController extends Controller
 
     public function allProduct(Request $request){
 
-        $products = DB::table("products")->get();
+        // $products = DB::table("products")->get();
+
+        $products  =Products::paginate(30);
 
         $query = Products::query();
         if ($request->input("under_price")) {
@@ -45,7 +47,7 @@ class ProductsController extends Controller
 
 
 
-        return view("products.products", ["products" => $allProductQuery], compact("allReview"));
+        return view("products.products", ["products" => $products], compact("allReview"));
     }
 
     public function catProduct($id){

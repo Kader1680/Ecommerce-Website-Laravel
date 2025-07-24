@@ -371,14 +371,15 @@
         <div class="col-md-9">
             <div class="row">
                 @foreach ($products as $product)
-                    <div class="col-sm-6 col-md-4 mb-4">
+                    {{-- <div class="col-sm-6 col-md-4 mb-4">
                         <div class="product-card">
-                            <img src="{{ asset('assets/image/' . $product->image) }}" alt="{{ $product->name }}">
+                            {{-- <img src="{{ asset('assets/image/' . $product->image) }}" alt="{{ $product->name }}"> --}}
+<img src="" alt="">
                             <div class="info">
                                 <p class="price">${{ $product->price }}</p>
                                 <p class="name">{{ $product->name }}</p>
                                 <p class="username">{{ $product->username }}</p>
-                                @foreach ($allReview as $review)
+                                {{-- @foreach ($allReview as $review)
                                     @if ($review->id_products == $product->id)
                                         @for ($i = 0; $i < $review->rating; $i++)
                                             <img style="width: 24px; height: 24px" src="{{ asset('assets/image/star.png') }}">
@@ -386,7 +387,7 @@
                                     @elseif ($review->id_products != $product->id)
                                         <p class="text-muted">( 0 ) Rating</p>
                                     @endif
-                                @endforeach
+                                @endforeach --}}
                                 <p class="quantity">Quantity: {{ $product->quantity }}</p>
                                 <div class="btn-group">
                                     <form action="{{ url('items', $product->id) }}" method="POST">
@@ -402,11 +403,82 @@
                             </div>
                         </div>
                     </div>
+                    --}}
+
+                <div class="card   col-sm-6 col-md-4 mb-4">
+                <h3 class="card-header">Card header</h3>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                </div>
+                <svg xmlns="https://goudronblanc.com/blog/wp-content/uploads/2022/12/veste-denim-nudie-jeans-500x500.png" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                    <rect width="100%" height="100%" fill="#868e96"></rect>
+                    <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                </svg>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Cras justo odio</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="card-link">Card link</a>
+                    <a href="#" class="card-link">Another link</a>
+                </div>
+                <div class="card-footer text-muted">
+                    2 days ago
+                </div>
+                </div>
+
+
+
+
                 @endforeach
             </div>
         </div>
 
-        <nav aria-label="Page navigation example">
+
+<div class="container mt-5">
+
+    <div class="d-flex justify-content-center mt-4">
+        {{ $products->links() }}
+    </div>
+</div>
+
+
+
+<div>
+  <ul class="pagination pagination-lg">
+    <li class="page-item disabled">
+      <a class="page-link" href="#">&laquo;</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" href="#">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">4</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">5</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">&raquo;</a>
+    </li>
+  </ul>
+</div>
+
+
+
+
+        {{-- <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
               <!-- Previous Button -->
               <li class="page-item disabled">
@@ -431,7 +503,7 @@
                 <a class="page-link" href="#" style="padding: 1rem 2rem; color: #09b83e; border-color: #09b83e;">Next</a>
               </li>
             </ul>
-          </nav>
+          </nav> --}}
 
     </div>
 </div>

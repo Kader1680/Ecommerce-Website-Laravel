@@ -28,6 +28,7 @@ class ProductsFactory extends Factory
             'image' => now(),
             'cat_id' => fake()->numberBetween($q = 1, $q = 2),
             'user_id' => fake()->numberBetween($q = 1, $q = 2),
+            "rating"=> fake()->numberBetween($q = 1, $q = 5),
         ];
     }
 }
