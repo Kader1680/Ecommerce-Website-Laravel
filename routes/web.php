@@ -42,9 +42,12 @@ Route::put("/profil/edit-image/{id}", [ProfilController::class, "updateImageProf
 
 
 Route::get("/login", [AuthController::class, "loginPage"])->name("login");
+
+ 
+
 Route::get("/register", [AuthController::class, "registerPage"])->name("register");
 Route::post("/register", [AuthController::class, "postRegister"])->name("register");
-Route::post("/login", [AuthController::class, "postLogin"])->name("login");
+Route::post("/login", [AuthController::class, "postLogin"])->name("login")->middleware('throttle:5,1');;
 Route::get("/logout", [AuthController::class, "logout"])->name(('logout'));
 Route::get("/dashboard", [DashboardController::class, "dash"])->middleware('admin');
 // Route::get("/payement", [payementController::class, "payement"]);
